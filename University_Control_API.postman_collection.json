@@ -1,0 +1,926 @@
+{
+	"info": {
+		"_postman_id": "university-control-api",
+		"name": "University Control API",
+		"description": "Colección completa de endpoints para el sistema de control universitario",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	],
+	"item": [
+		{
+			"name": "Students",
+			"item": [
+				{
+					"name": "Get All Students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/students",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "students"]
+						}
+					}
+				},
+				{
+					"name": "Get Student By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/students/:id",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "students", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"1\",\n  \"firstName\": \"Juan\",\n  \"lastName\": \"Pérez\",\n  \"email\": \"juan.perez@umanizales.edu.co\",\n  \"phone\": \"3001234567\",\n  \"address\": \"Calle 1 # 2-3\",\n  \"enrollmentDate\": \"2024-01-15\",\n  \"major\": \"Ingeniería de Sistemas\",\n  \"gpa\": 4.2\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/students",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "students"]
+						}
+					}
+				},
+				{
+					"name": "Update Student",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"Juan\",\n  \"lastName\": \"Pérez\",\n  \"email\": \"juan.perez@umanizales.edu.co\",\n  \"phone\": \"3001234567\",\n  \"address\": \"Calle 1 # 2-3\",\n  \"enrollmentDate\": \"2024-01-15\",\n  \"major\": \"Ingeniería de Sistemas\",\n  \"gpa\": 4.5\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/students/:id",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "students", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Delete Student",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/students/:id",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "students", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Professors",
+			"item": [
+				{
+					"name": "Get All Professors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/professors",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "professors"]
+						}
+					}
+				},
+				{
+					"name": "Get Professor By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/professors/:id",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "professors", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Professor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"1\",\n  \"firstName\": \"María\",\n  \"lastName\": \"González\",\n  \"email\": \"maria.gonzalez@umanizales.edu.co\",\n  \"phone\": \"3109876543\",\n  \"address\": \"Carrera 10 # 20-30\",\n  \"departmentId\": \"DEPT001\",\n  \"specialization\": \"Desarrollo de Software\",\n  \"hireDate\": \"2020-03-01\",\n  \"salary\": 5000000.0\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/professors",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "professors"]
+						}
+					}
+				},
+				{
+					"name": "Update Professor",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"María\",\n  \"lastName\": \"González\",\n  \"email\": \"maria.gonzalez@umanizales.edu.co\",\n  \"phone\": \"3109876543\",\n  \"address\": \"Carrera 10 # 20-30\",\n  \"departmentId\": \"DEPT001\",\n  \"specialization\": \"Desarrollo de Software\",\n  \"hireDate\": \"2020-03-01\",\n  \"salary\": 5500000.0\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/professors/:id",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "professors", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Delete Professor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/professors/:id",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "professors", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Administrative Employees",
+			"item": [
+				{
+					"name": "Get All Administrative Employees",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/administrative-employees",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "administrative-employees"]
+						}
+					}
+				},
+				{
+					"name": "Get Administrative Employee By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/administrative-employees/:id",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "administrative-employees", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Administrative Employee",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"1\",\n  \"firstName\": \"Carlos\",\n  \"lastName\": \"Rodríguez\",\n  \"email\": \"carlos.rodriguez@umanizales.edu.co\",\n  \"phone\": \"3201234567\",\n  \"address\": \"Avenida 5 # 10-15\",\n  \"position\": \"Coordinador Académico\",\n  \"departmentId\": \"DEPT001\",\n  \"hireDate\": \"2019-08-15\",\n  \"salary\": 3500000.0\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/administrative-employees",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "administrative-employees"]
+						}
+					}
+				},
+				{
+					"name": "Update Administrative Employee",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"Carlos\",\n  \"lastName\": \"Rodríguez\",\n  \"email\": \"carlos.rodriguez@umanizales.edu.co\",\n  \"phone\": \"3201234567\",\n  \"address\": \"Avenida 5 # 10-15\",\n  \"position\": \"Coordinador Académico\",\n  \"departmentId\": \"DEPT001\",\n  \"hireDate\": \"2019-08-15\",\n  \"salary\": 4000000.0\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/administrative-employees/:id",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "administrative-employees", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Delete Administrative Employee",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/administrative-employees/:id",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "administrative-employees", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Courses",
+			"item": [
+				{
+					"name": "Get All Courses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/courses",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "courses"]
+						}
+					}
+				},
+				{
+					"name": "Get Course By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/courses/:id",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "courses", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Course",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"1\",\n  \"name\": \"Programación Orientada a Objetos\",\n  \"code\": \"POO-101\",\n  \"credits\": 4,\n  \"description\": \"Fundamentos de programación orientada a objetos\",\n  \"departmentId\": \"DEPT001\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/courses",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "courses"]
+						}
+					}
+				},
+				{
+					"name": "Update Course",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Programación Orientada a Objetos\",\n  \"code\": \"POO-101\",\n  \"credits\": 4,\n  \"description\": \"Fundamentos avanzados de programación orientada a objetos\",\n  \"departmentId\": \"DEPT001\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/courses/:id",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "courses", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Delete Course",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/courses/:id",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "courses", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Classrooms",
+			"item": [
+				{
+					"name": "Get All Classrooms",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/classrooms",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "classrooms"]
+						}
+					}
+				},
+				{
+					"name": "Get Classroom By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/classrooms/:id",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "classrooms", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Classroom",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"1\",\n  \"buildingName\": \"Edificio A\",\n  \"roomNumber\": \"101\",\n  \"capacity\": 40,\n  \"hasProjector\": true,\n  \"hasAirConditioning\": true\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/classrooms",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "classrooms"]
+						}
+					}
+				},
+				{
+					"name": "Update Classroom",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"buildingName\": \"Edificio A\",\n  \"roomNumber\": \"101\",\n  \"capacity\": 45,\n  \"hasProjector\": true,\n  \"hasAirConditioning\": true\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/classrooms/:id",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "classrooms", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Delete Classroom",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/classrooms/:id",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "classrooms", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Departments",
+			"item": [
+				{
+					"name": "Get All Departments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/departments",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "departments"]
+						}
+					}
+				},
+				{
+					"name": "Get Department By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/departments/:id",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "departments", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "DEPT001"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Department",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"DEPT001\",\n  \"name\": \"Departamento de Ingeniería\",\n  \"facultyId\": \"FAC001\",\n  \"headProfessorId\": \"PROF001\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/departments",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "departments"]
+						}
+					}
+				},
+				{
+					"name": "Update Department",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Departamento de Ingeniería de Sistemas\",\n  \"facultyId\": \"FAC001\",\n  \"headProfessorId\": \"PROF001\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/departments/:id",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "departments", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "DEPT001"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Delete Department",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/departments/:id",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "departments", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "DEPT001"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Faculties",
+			"item": [
+				{
+					"name": "Get All Faculties",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/faculties",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "faculties"]
+						}
+					}
+				},
+				{
+					"name": "Get Faculty By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/faculties/:id",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "faculties", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "FAC001"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Faculty",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"FAC001\",\n  \"name\": \"Facultad de Ingeniería\",\n  \"dean\": \"Dr. Alberto Ramírez\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/faculties",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "faculties"]
+						}
+					}
+				},
+				{
+					"name": "Update Faculty",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Facultad de Ingeniería y Arquitectura\",\n  \"dean\": \"Dr. Alberto Ramírez\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/faculties/:id",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "faculties", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "FAC001"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Delete Faculty",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/faculties/:id",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "faculties", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "FAC001"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Enrollments",
+			"item": [
+				{
+					"name": "Get All Enrollments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/enrollments",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "enrollments"]
+						}
+					}
+				},
+				{
+					"name": "Get Enrollment By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/enrollments/:id",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "enrollments", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Enrollment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"1\",\n  \"studentId\": \"1\",\n  \"courseId\": \"1\",\n  \"enrollmentDate\": \"2024-01-15\",\n  \"semester\": \"2024-1\",\n  \"grade\": 4.5\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/enrollments",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "enrollments"]
+						}
+					}
+				},
+				{
+					"name": "Update Enrollment",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"studentId\": \"1\",\n  \"courseId\": \"1\",\n  \"enrollmentDate\": \"2024-01-15\",\n  \"semester\": \"2024-1\",\n  \"grade\": 4.8\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/enrollments/:id",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "enrollments", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Delete Enrollment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/enrollments/:id",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "enrollments", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Professor Assignments",
+			"item": [
+				{
+					"name": "Get All Professor Assignments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/professor-assignments",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "professor-assignments"]
+						}
+					}
+				},
+				{
+					"name": "Get Professor Assignment By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/professor-assignments/:id",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "professor-assignments", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Professor Assignment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"1\",\n  \"professorId\": \"1\",\n  \"courseId\": \"1\",\n  \"classroomId\": \"1\",\n  \"semester\": \"2024-1\",\n  \"schedule\": \"Lunes y Miércoles 8:00-10:00\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/professor-assignments",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "professor-assignments"]
+						}
+					}
+				},
+				{
+					"name": "Update Professor Assignment",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"professorId\": \"1\",\n  \"courseId\": \"1\",\n  \"classroomId\": \"1\",\n  \"semester\": \"2024-1\",\n  \"schedule\": \"Martes y Jueves 10:00-12:00\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/professor-assignments/:id",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "professor-assignments", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Delete Professor Assignment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/professor-assignments/:id",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "professor-assignments", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					}
+				}
+			]
+		}
+	]
+}
