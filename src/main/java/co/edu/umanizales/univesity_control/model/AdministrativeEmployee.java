@@ -11,10 +11,10 @@ public class AdministrativeEmployee extends Person {
     private String position;
     private String departmentId;
     private String hireDate;
-    private Double salary;
+    private double salary;
 
     public AdministrativeEmployee(String id, String firstName, String lastName, String email, String phone, 
-                                  String address, String position, String departmentId, String hireDate, Double salary) {
+                                  String address, String position, String departmentId, String hireDate, double salary) {
         super(id, firstName, lastName, email, phone, address);
         this.position = position;
         this.departmentId = departmentId;

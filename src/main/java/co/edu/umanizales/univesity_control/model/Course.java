@@ -11,7 +11,7 @@ public class Course {
     private String id;
     private String name;
     private String code;
-    private Integer credits;
+    private int credits;
     private String description;
     private String departmentId;
 }

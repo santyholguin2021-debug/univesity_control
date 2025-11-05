@@ -10,10 +10,10 @@ import lombok.NoArgsConstructor;
 public class Student extends Person {
     private String enrollmentDate;
     private String major;
-    private Double gpa;
+    private double gpa;
 
     public Student(String id, String firstName, String lastName, String email, String phone, 
-                   String address, String enrollmentDate, String major, Double gpa) {
+                   String address, String enrollmentDate, String major, double gpa) {
         super(id, firstName, lastName, email, phone, address);
         this.enrollmentDate = enrollmentDate;
         this.major = major;

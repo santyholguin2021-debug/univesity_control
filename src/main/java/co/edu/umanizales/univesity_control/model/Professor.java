@@ -11,10 +11,10 @@ public class Professor extends Person {
     private String departmentId;
     private String specialization;
     private String hireDate;
-    private Double salary;
+    private double salary;
 
     public Professor(String id, String firstName, String lastName, String email, String phone, 
-                     String address, String departmentId, String specialization, String hireDate, Double salary) {
+                     String address, String departmentId, String specialization, String hireDate, double salary) {
         super(id, firstName, lastName, email, phone, address);
         this.departmentId = departmentId;
         this.specialization = specialization;

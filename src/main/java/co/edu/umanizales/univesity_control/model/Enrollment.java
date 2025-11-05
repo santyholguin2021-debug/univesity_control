@@ -14,5 +14,5 @@ public class Enrollment {
     private String enrollmentDate;
     private String semester;
     private String status;
-    private Double grade;
+    private double grade;
 }
