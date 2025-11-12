@@ -94,7 +94,7 @@ public class CourseRepository implements CsvRepository<Course> {
         String[] parts = line.split(",", -1);
         return new Course(
                 parts[0], parts[1], parts[2],
-                parts[3].isEmpty() ? null : Integer.parseInt(parts[3]),
+                parts[3].isEmpty() ? 0 : Integer.parseInt(parts[3]),
                 parts[4], parts[5]
         );
     }
@@ -104,7 +104,7 @@ public class CourseRepository implements CsvRepository<Course> {
                 course.getId(),
                 course.getName(),
                 course.getCode(),
-                course.getCredits() != null ? course.getCredits().toString() : "",
+                String.valueOf(course.getCredits()),
                 course.getDescription(),
                 course.getDepartmentId()
         );

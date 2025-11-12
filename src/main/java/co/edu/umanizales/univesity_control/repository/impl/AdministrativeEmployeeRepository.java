@@ -94,7 +94,7 @@ public class AdministrativeEmployeeRepository implements CsvRepository<Administr
         String[] parts = line.split(",", -1);
         return new AdministrativeEmployee(
                 parts[0], parts[1], parts[2], parts[3], parts[4], parts[5],
-                parts[6], parts[7], parts[8], parts[9].isEmpty() ? null : Double.parseDouble(parts[9])
+                parts[6], parts[7], parts[8], parts[9].isEmpty() ? 0.0 : Double.parseDouble(parts[9])
         );
     }
 
@@ -109,7 +109,7 @@ public class AdministrativeEmployeeRepository implements CsvRepository<Administr
                 employee.getPosition(),
                 employee.getDepartmentId(),
                 employee.getHireDate(),
-                employee.getSalary() != null ? employee.getSalary().toString() : ""
+                String.valueOf(employee.getSalary())
         );
     }
 }

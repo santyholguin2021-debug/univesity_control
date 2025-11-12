@@ -94,7 +94,7 @@ public class StudentRepository implements CsvRepository<Student> {
         String[] parts = line.split(",", -1);
         return new Student(
                 parts[0], parts[1], parts[2], parts[3], parts[4], parts[5],
-                parts[6], parts[7], parts[8].isEmpty() ? null : Double.parseDouble(parts[8])
+                parts[6], parts[7], parts[8].isEmpty() ? 0.0 : Double.parseDouble(parts[8])
         );
     }
 
@@ -108,7 +108,7 @@ public class StudentRepository implements CsvRepository<Student> {
                 student.getAddress(),
                 student.getEnrollmentDate(),
                 student.getMajor(),
-                student.getGpa() != null ? student.getGpa().toString() : ""
+                String.valueOf(student.getGpa())
         );
     }
 }

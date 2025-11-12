@@ -94,7 +94,7 @@ public class EnrollmentRepository implements CsvRepository<Enrollment> {
         String[] parts = line.split(",", -1);
         return new Enrollment(
                 parts[0], parts[1], parts[2], parts[3], parts[4], parts[5],
-                parts[6].isEmpty() ? null : Double.parseDouble(parts[6])
+                parts[6].isEmpty() ? 0.0 : Double.parseDouble(parts[6])
         );
     }
 
@@ -106,7 +106,7 @@ public class EnrollmentRepository implements CsvRepository<Enrollment> {
                 enrollment.getEnrollmentDate(),
                 enrollment.getSemester(),
                 enrollment.getStatus(),
-                enrollment.getGrade() != null ? enrollment.getGrade().toString() : ""
+                String.valueOf(enrollment.getGrade())
         );
     }
 }
