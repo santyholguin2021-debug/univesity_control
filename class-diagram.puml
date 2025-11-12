@@ -1,0 +1,130 @@
+@startuml University Control System - Class Diagram
+
+' Configuración del diagrama
+skinparam classAttributeIconSize 0
+skinparam linetype ortho
+skinparam groupInheritance 2
+
+' Clase abstracta Person
+abstract class Person {
+    - id: String
+    - firstName: String
+    - lastName: String
+    - email: String
+    - phone: String
+    - address: String
+}
+
+' Clases que heredan de Person
+class Student {
+    - enrollmentDate: String
+    - major: String
+    - gpa: double
+}
+
+class Professor {
+    - departmentId: String
+    - specialization: String
+    - hireDate: String
+    - salary: double
+}
+
+class AdministrativeEmployee {
+    - position: String
+    - departmentId: String
+    - hireDate: String
+    - salary: double
+}
+
+' Clases de la estructura universitaria
+class Faculty {
+    - id: String
+    - name: String
+    - code: String
+    - deanId: String
+    - description: String
+}
+
+class Department {
+    - id: String
+    - name: String
+    - code: String
+    - facultyId: String
+    - headProfessorId: String
+}
+
+class Course {
+    - id: String
+    - name: String
+    - code: String
+    - credits: int
+    - description: String
+    - departmentId: String
+}
+
+class Classroom {
+    - id: String
+    - name: String
+    - building: String
+    - capacity: int
+    - type: String
+    - equipment: String
+}
+
+' Clases de relación
+class Enrollment {
+    - id: String
+    - studentId: String
+    - courseId: String
+    - enrollmentDate: String
+    - semester: String
+    - status: String
+    - grade: double
+}
+
+class ProfessorAssignment {
+    - id: String
+    - professorId: String
+    - courseId: String
+    - semester: String
+    - assignmentDate: String
+    - schedule: String
+}
+
+' Relaciones de herencia
+Person <|-- Student
+Person <|-- Professor
+Person <|-- AdministrativeEmployee
+
+' Relaciones de asociación
+Faculty "1" -- "0..*" Department : contains
+Department "1" -- "0..*" Course : offers
+Department "0..1" -- "1" Professor : headProfessor
+
+Professor "1" -- "0..*" ProfessorAssignment : teaches
+Course "1" -- "0..*" ProfessorAssignment : assignedTo
+
+Student "1" -- "0..*" Enrollment : enrolls
+Course "1" -- "0..*" Enrollment : enrolledIn
+
+Professor "0..*" -- "1" Department : worksIn
+AdministrativeEmployee "0..*" -- "1" Department : worksIn
+
+Faculty "0..1" -- "1" AdministrativeEmployee : dean
+
+note right of Person
+  Clase abstracta base para
+  todas las personas del sistema
+end note
+
+note right of Enrollment
+  Representa la matrícula
+  de un estudiante en un curso
+end note
+
+note right of ProfessorAssignment
+  Asignación de profesores
+  a cursos en un semestre
+end note
+
+@enduml
