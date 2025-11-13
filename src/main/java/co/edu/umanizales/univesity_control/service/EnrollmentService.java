@@ -1,32 +1,48 @@
 package co.edu.umanizales.univesity_control.service;
 
 import co.edu.umanizales.univesity_control.model.Enrollment;
-import co.edu.umanizales.univesity_control.repository.impl.EnrollmentRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class EnrollmentService {
 
-    private final EnrollmentRepository repository;
+    private final List<Enrollment> enrollments = new ArrayList<>();
 
     public List<Enrollment> findAll() {
-        return repository.findAll();
+        return new ArrayList<>(enrollments);
     }
 
     public Enrollment findById(String id) {
-        return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Enrollment not found with id: " + id));
+        for (Enrollment enrollment : enrollments) {
+            if (enrollment.getId() != null && enrollment.getId().equals(id)) {
+                return enrollment;
+            }
+        }
+        throw new RuntimeException("Enrollment not found with id: " + id);
     }
 
     public Enrollment save(Enrollment enrollment) {
-        return repository.save(enrollment);
+        for (int i = 0; i < enrollments.size(); i++) {
+            Enrollment current = enrollments.get(i);
+            if (current.getId() != null && current.getId().equals(enrollment.getId())) {
+                enrollments.set(i, enrollment);
+                return enrollment;
+            }
+        }
+        enrollments.add(enrollment);
+        return enrollment;
     }
 
     public void deleteById(String id) {
-        repository.deleteById(id);
+        for (int i = 0; i < enrollments.size(); i++) {
+            Enrollment enrollment = enrollments.get(i);
+            if (enrollment.getId() != null && enrollment.getId().equals(id)) {
+                enrollments.remove(i);
+                return;
+            }
+        }
     }
 }

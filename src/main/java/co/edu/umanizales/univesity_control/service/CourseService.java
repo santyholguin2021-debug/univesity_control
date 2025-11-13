@@ -1,32 +1,48 @@
 package co.edu.umanizales.univesity_control.service;
 
 import co.edu.umanizales.univesity_control.model.Course;
-import co.edu.umanizales.univesity_control.repository.impl.CourseRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class CourseService {
 
-    private final CourseRepository repository;
+    private final List<Course> courses = new ArrayList<>();
 
     public List<Course> findAll() {
-        return repository.findAll();
+        return new ArrayList<>(courses);
     }
 
     public Course findById(String id) {
-        return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Course not found with id: " + id));
+        for (Course course : courses) {
+            if (course.getId() != null && course.getId().equals(id)) {
+                return course;
+            }
+        }
+        throw new RuntimeException("Course not found with id: " + id);
     }
 
     public Course save(Course course) {
-        return repository.save(course);
+        for (int i = 0; i < courses.size(); i++) {
+            Course current = courses.get(i);
+            if (current.getId() != null && current.getId().equals(course.getId())) {
+                courses.set(i, course);
+                return course;
+            }
+        }
+        courses.add(course);
+        return course;
     }
 
     public void deleteById(String id) {
-        repository.deleteById(id);
+        for (int i = 0; i < courses.size(); i++) {
+            Course course = courses.get(i);
+            if (course.getId() != null && course.getId().equals(id)) {
+                courses.remove(i);
+                return;
+            }
+        }
     }
 }

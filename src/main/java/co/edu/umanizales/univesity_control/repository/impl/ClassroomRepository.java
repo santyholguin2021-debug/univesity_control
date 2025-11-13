@@ -101,12 +101,12 @@ public class ClassroomRepository implements CsvRepository<Classroom> {
 
     private String toCSV(Classroom classroom) {
         return String.join(",",
-                classroom.getId(),
-                classroom.getName(),
-                classroom.getBuilding(),
-                classroom.getCapacity() != null ? classroom.getCapacity().toString() : "",
-                classroom.getType(),
-                classroom.getEquipment()
+                String.valueOf(classroom.getId()),
+                String.valueOf(classroom.getName()),
+                String.valueOf(classroom.getBuilding()),
+                String.valueOf(classroom.getCapacity()),
+                String.valueOf(classroom.getType()),
+                String.valueOf(classroom.getEquipment())
         );
     }
 }

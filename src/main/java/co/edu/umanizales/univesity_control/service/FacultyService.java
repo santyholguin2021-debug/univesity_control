@@ -1,32 +1,48 @@
 package co.edu.umanizales.univesity_control.service;
 
 import co.edu.umanizales.univesity_control.model.Faculty;
-import co.edu.umanizales.univesity_control.repository.impl.FacultyRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class FacultyService {
 
-    private final FacultyRepository repository;
+    private final List<Faculty> faculties = new ArrayList<>();
 
     public List<Faculty> findAll() {
-        return repository.findAll();
+        return new ArrayList<>(faculties);
     }
 
     public Faculty findById(String id) {
-        return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Faculty not found with id: " + id));
+        for (Faculty faculty : faculties) {
+            if (faculty.getId() != null && faculty.getId().equals(id)) {
+                return faculty;
+            }
+        }
+        throw new RuntimeException("Faculty not found with id: " + id);
     }
 
     public Faculty save(Faculty faculty) {
-        return repository.save(faculty);
+        for (int i = 0; i < faculties.size(); i++) {
+            Faculty current = faculties.get(i);
+            if (current.getId() != null && current.getId().equals(faculty.getId())) {
+                faculties.set(i, faculty);
+                return faculty;
+            }
+        }
+        faculties.add(faculty);
+        return faculty;
     }
 
     public void deleteById(String id) {
-        repository.deleteById(id);
+        for (int i = 0; i < faculties.size(); i++) {
+            Faculty faculty = faculties.get(i);
+            if (faculty.getId() != null && faculty.getId().equals(id)) {
+                faculties.remove(i);
+                return;
+            }
+        }
     }
 }
