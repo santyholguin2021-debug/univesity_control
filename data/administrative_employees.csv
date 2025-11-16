@@ -1,1 +1,2 @@
 id,firstName,lastName,email,phone,address,position,departmentId,hireDate,salary
+ADMIN001,María,Rodríguez,maria.rodriguez@university.edu,3005551234,Calle 10 #789,Registrar,,2021-06-01,3000000.0

@@ -64,8 +64,20 @@ public class ClassroomRepository implements CsvRepository<Classroom> {
     @Override
     public Classroom save(Classroom entity) {
         List<Classroom> classrooms = findAll();
-        classrooms.removeIf(c -> c.getId().equals(entity.getId()));
-        classrooms.add(entity);
+        // Check if ID already exists
+        boolean exists = classrooms.stream().anyMatch(c -> c.getId().equals(entity.getId()));
+        if (exists) {
+            // Update existing
+            for (int i = 0; i < classrooms.size(); i++) {
+                if (classrooms.get(i).getId().equals(entity.getId())) {
+                    classrooms.set(i, entity);
+                    break;
+                }
+            }
+        } else {
+            // Add new
+            classrooms.add(entity);
+        }
         saveAll(classrooms);
         return entity;
     }

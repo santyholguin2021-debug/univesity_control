@@ -13,7 +13,6 @@ public class AdministrativeEmployee extends Person {
     private String position;
     
     // ID para persistencia CSV
-    private String departmentId;
     
     // Referencia a objeto para relaciones (no se serializa en CSV)
     @JsonBackReference("department-employees")
@@ -24,10 +23,10 @@ public class AdministrativeEmployee extends Person {
     private double salary;
 
     public AdministrativeEmployee(String id, String firstName, String lastName, String email, String phone, 
-                                  String address, String position, String departmentId, String hireDate, double salary) {
+                                  String address, String position, Department department, String hireDate, double salary) {
         super(id, firstName, lastName, email, phone, address);
         this.position = position;
-        this.departmentId = departmentId;
+        this.department = department;
         this.hireDate = hireDate;
         this.salary = salary;
     }

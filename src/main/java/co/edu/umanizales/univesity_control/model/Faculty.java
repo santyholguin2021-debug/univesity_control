@@ -14,7 +14,6 @@ public class Faculty {
     private String id;
     private String name;
     private String code;
-    private String deanId; // ID para persistencia CSV
     private String description;
     
     // Referencias a objetos para relaciones (no se serializan en CSV)
@@ -22,11 +21,14 @@ public class Faculty {
     @JsonIgnore
     private List<Department> departments = new ArrayList<>();
     
-    public Faculty(String id, String name, String code, String deanId, String description) {
+    @JsonIgnore
+    private Professor dean;
+    
+    public Faculty(String id, String name, String code, Professor dean, String description) {
         this.id = id;
         this.name = name;
         this.code = code;
-        this.deanId = deanId;
+        this.dean = dean;
         this.description = description;
     }
 }

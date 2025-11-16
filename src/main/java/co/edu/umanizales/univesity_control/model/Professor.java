@@ -15,7 +15,6 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 public class Professor extends Person {
     // ID para persistencia CSV
-    private String departmentId;
     
     // Referencia a objeto para relaciones (no se serializa en CSV)
     @JsonBackReference("department-professors")
@@ -31,9 +30,9 @@ public class Professor extends Person {
     private List<ProfessorAssignment> assignments = new ArrayList<>();
 
     public Professor(String id, String firstName, String lastName, String email, String phone, 
-                     String address, String departmentId, String specialization, String hireDate, double salary) {
+                     String address, Department department, String specialization, String hireDate, double salary) {
         super(id, firstName, lastName, email, phone, address);
-        this.departmentId = departmentId;
+        this.department = department;
         this.specialization = specialization;
         this.hireDate = hireDate;
         this.salary = salary;

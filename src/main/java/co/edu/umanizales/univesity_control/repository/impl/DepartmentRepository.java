@@ -64,8 +64,20 @@ public class DepartmentRepository implements CsvRepository<Department> {
     @Override
     public Department save(Department entity) {
         List<Department> departments = findAll();
-        departments.removeIf(d -> d.getId().equals(entity.getId()));
-        departments.add(entity);
+        // Check if ID already exists
+        boolean exists = departments.stream().anyMatch(d -> d.getId().equals(entity.getId()));
+        if (exists) {
+            // Update existing
+            for (int i = 0; i < departments.size(); i++) {
+                if (departments.get(i).getId().equals(entity.getId())) {
+                    departments.set(i, entity);
+                    break;
+                }
+            }
+        } else {
+            // Add new
+            departments.add(entity);
+        }
         saveAll(departments);
         return entity;
     }
@@ -92,7 +104,7 @@ public class DepartmentRepository implements CsvRepository<Department> {
 
     private Department parseDepartment(String line) {
         String[] parts = line.split(",", -1);
-        return new Department(parts[0], parts[1], parts[2], parts[3], parts[4]);
+        return new Department(parts[0], parts[1], parts[2], null, null);
     }
 
     private String toCSV(Department department) {
@@ -100,8 +112,8 @@ public class DepartmentRepository implements CsvRepository<Department> {
                 department.getId(),
                 department.getName(),
                 department.getCode(),
-                department.getFacultyId(),
-                department.getHeadProfessorId()
+                "",
+                ""
         );
     }
 }

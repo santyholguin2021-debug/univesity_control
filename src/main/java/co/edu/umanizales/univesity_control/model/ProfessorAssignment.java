@@ -11,8 +11,6 @@ public class ProfessorAssignment {
     private String id;
     
     // IDs para persistencia CSV
-    private String professorId;
-    private String courseId;
     
     // Referencias a objetos para relaciones (no se serializan en CSV)
     @JsonBackReference("professor-assignments")
@@ -27,11 +25,11 @@ public class ProfessorAssignment {
     private String assignmentDate;
     private String schedule;
     
-    public ProfessorAssignment(String id, String professorId, String courseId, 
+    public ProfessorAssignment(String id, Professor professor, Course course, 
                               String semester, String assignmentDate, String schedule) {
         this.id = id;
-        this.professorId = professorId;
-        this.courseId = courseId;
+        this.professor = professor;
+        this.course = course;
         this.semester = semester;
         this.assignmentDate = assignmentDate;
         this.schedule = schedule;

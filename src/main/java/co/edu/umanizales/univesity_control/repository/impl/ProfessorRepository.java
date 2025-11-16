@@ -64,8 +64,20 @@ public class ProfessorRepository implements CsvRepository<Professor> {
     @Override
     public Professor save(Professor entity) {
         List<Professor> professors = findAll();
-        professors.removeIf(p -> p.getId().equals(entity.getId()));
-        professors.add(entity);
+        // Check if ID already exists
+        boolean exists = professors.stream().anyMatch(p -> p.getId().equals(entity.getId()));
+        if (exists) {
+            // Update existing
+            for (int i = 0; i < professors.size(); i++) {
+                if (professors.get(i).getId().equals(entity.getId())) {
+                    professors.set(i, entity);
+                    break;
+                }
+            }
+        } else {
+            // Add new
+            professors.add(entity);
+        }
         saveAll(professors);
         return entity;
     }
@@ -94,7 +106,7 @@ public class ProfessorRepository implements CsvRepository<Professor> {
         String[] parts = line.split(",", -1);
         return new Professor(
                 parts[0], parts[1], parts[2], parts[3], parts[4], parts[5],
-                parts[6], parts[7], parts[8], parts[9].isEmpty() ? 0.0 : Double.parseDouble(parts[9])
+                null, parts[7], parts[8], parts[9].isEmpty() ? 0.0 : Double.parseDouble(parts[9])
         );
     }
 
@@ -106,7 +118,7 @@ public class ProfessorRepository implements CsvRepository<Professor> {
                 professor.getEmail(),
                 professor.getPhone(),
                 professor.getAddress(),
-                professor.getDepartmentId(),
+                "",
                 professor.getSpecialization(),
                 professor.getHireDate(),
                 String.valueOf(professor.getSalary())

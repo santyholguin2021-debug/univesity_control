@@ -28,13 +28,13 @@ public class EnrollmentController {
 
     @PostMapping
     public ResponseEntity<Enrollment> create(@RequestBody Enrollment enrollment) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(service.save(enrollment));
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.create(enrollment));
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Enrollment> update(@PathVariable String id, @RequestBody Enrollment enrollment) {
         enrollment.setId(id);
-        return ResponseEntity.ok(service.save(enrollment));
+        return ResponseEntity.ok(service.update(enrollment));
     }
 
     @DeleteMapping("/{id}")

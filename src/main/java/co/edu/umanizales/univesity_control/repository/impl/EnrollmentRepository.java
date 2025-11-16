@@ -64,8 +64,20 @@ public class EnrollmentRepository implements CsvRepository<Enrollment> {
     @Override
     public Enrollment save(Enrollment entity) {
         List<Enrollment> enrollments = findAll();
-        enrollments.removeIf(e -> e.getId().equals(entity.getId()));
-        enrollments.add(entity);
+        // Check if ID already exists
+        boolean exists = enrollments.stream().anyMatch(e -> e.getId().equals(entity.getId()));
+        if (exists) {
+            // Update existing
+            for (int i = 0; i < enrollments.size(); i++) {
+                if (enrollments.get(i).getId().equals(entity.getId())) {
+                    enrollments.set(i, entity);
+                    break;
+                }
+            }
+        } else {
+            // Add new
+            enrollments.add(entity);
+        }
         saveAll(enrollments);
         return entity;
     }
@@ -93,7 +105,7 @@ public class EnrollmentRepository implements CsvRepository<Enrollment> {
     private Enrollment parseEnrollment(String line) {
         String[] parts = line.split(",", -1);
         return new Enrollment(
-                parts[0], parts[1], parts[2], parts[3], parts[4], parts[5],
+                parts[0], null, null, parts[3], parts[4], parts[5],
                 parts[6].isEmpty() ? 0.0 : Double.parseDouble(parts[6])
         );
     }
@@ -101,8 +113,8 @@ public class EnrollmentRepository implements CsvRepository<Enrollment> {
     private String toCSV(Enrollment enrollment) {
         return String.join(",",
                 enrollment.getId(),
-                enrollment.getStudentId(),
-                enrollment.getCourseId(),
+                "",
+                "",
                 enrollment.getEnrollmentDate(),
                 enrollment.getSemester(),
                 enrollment.getStatus(),

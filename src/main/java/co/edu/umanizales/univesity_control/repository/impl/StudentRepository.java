@@ -64,8 +64,20 @@ public class StudentRepository implements CsvRepository<Student> {
     @Override
     public Student save(Student entity) {
         List<Student> students = findAll();
-        students.removeIf(s -> s.getId().equals(entity.getId()));
-        students.add(entity);
+        // Check if ID already exists
+        boolean exists = students.stream().anyMatch(s -> s.getId().equals(entity.getId()));
+        if (exists) {
+            // Update existing
+            for (int i = 0; i < students.size(); i++) {
+                if (students.get(i).getId().equals(entity.getId())) {
+                    students.set(i, entity);
+                    break;
+                }
+            }
+        } else {
+            // Add new
+            students.add(entity);
+        }
         saveAll(students);
         return entity;
     }

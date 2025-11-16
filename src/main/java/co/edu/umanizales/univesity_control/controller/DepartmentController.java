@@ -28,13 +28,13 @@ public class DepartmentController {
 
     @PostMapping
     public ResponseEntity<Department> create(@RequestBody Department department) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(service.save(department));
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.create(department));
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Department> update(@PathVariable String id, @RequestBody Department department) {
         department.setId(id);
-        return ResponseEntity.ok(service.save(department));
+        return ResponseEntity.ok(service.update(department));
     }
 
     @DeleteMapping("/{id}")

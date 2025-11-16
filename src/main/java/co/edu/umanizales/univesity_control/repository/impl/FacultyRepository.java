@@ -64,8 +64,20 @@ public class FacultyRepository implements CsvRepository<Faculty> {
     @Override
     public Faculty save(Faculty entity) {
         List<Faculty> faculties = findAll();
-        faculties.removeIf(f -> f.getId().equals(entity.getId()));
-        faculties.add(entity);
+        // Check if ID already exists
+        boolean exists = faculties.stream().anyMatch(f -> f.getId().equals(entity.getId()));
+        if (exists) {
+            // Update existing
+            for (int i = 0; i < faculties.size(); i++) {
+                if (faculties.get(i).getId().equals(entity.getId())) {
+                    faculties.set(i, entity);
+                    break;
+                }
+            }
+        } else {
+            // Add new
+            faculties.add(entity);
+        }
         saveAll(faculties);
         return entity;
     }
@@ -92,7 +104,7 @@ public class FacultyRepository implements CsvRepository<Faculty> {
 
     private Faculty parseFaculty(String line) {
         String[] parts = line.split(",", -1);
-        return new Faculty(parts[0], parts[1], parts[2], parts[3], parts[4]);
+        return new Faculty(parts[0], parts[1], parts[2], null, parts[4]);
     }
 
     private String toCSV(Faculty faculty) {
@@ -100,7 +112,7 @@ public class FacultyRepository implements CsvRepository<Faculty> {
                 faculty.getId(),
                 faculty.getName(),
                 faculty.getCode(),
-                faculty.getDeanId(),
+                "",
                 faculty.getDescription()
         );
     }

@@ -28,13 +28,13 @@ public class CourseController {
 
     @PostMapping
     public ResponseEntity<Course> create(@RequestBody Course course) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(service.save(course));
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.create(course));
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Course> update(@PathVariable String id, @RequestBody Course course) {
         course.setId(id);
-        return ResponseEntity.ok(service.save(course));
+        return ResponseEntity.ok(service.update(course));
     }
 
     @DeleteMapping("/{id}")

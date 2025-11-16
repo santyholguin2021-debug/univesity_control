@@ -1,1 +1,2 @@
 id,firstName,lastName,email,phone,address,departmentId,specialization,hireDate,salary
+PROF001,Juan,García,juan.garcia@university.edu,3001234567,Calle 1 #123,,Software Engineering,2020-01-15,5000000.0

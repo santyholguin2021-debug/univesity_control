@@ -28,13 +28,13 @@ public class ProfessorAssignmentController {
 
     @PostMapping
     public ResponseEntity<ProfessorAssignment> create(@RequestBody ProfessorAssignment assignment) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(service.save(assignment));
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.create(assignment));
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<ProfessorAssignment> update(@PathVariable String id, @RequestBody ProfessorAssignment assignment) {
         assignment.setId(id);
-        return ResponseEntity.ok(service.save(assignment));
+        return ResponseEntity.ok(service.update(assignment));
     }
 
     @DeleteMapping("/{id}")

@@ -64,8 +64,20 @@ public class AdministrativeEmployeeRepository implements CsvRepository<Administr
     @Override
     public AdministrativeEmployee save(AdministrativeEmployee entity) {
         List<AdministrativeEmployee> employees = findAll();
-        employees.removeIf(e -> e.getId().equals(entity.getId()));
-        employees.add(entity);
+        // Check if ID already exists
+        boolean exists = employees.stream().anyMatch(e -> e.getId().equals(entity.getId()));
+        if (exists) {
+            // Update existing
+            for (int i = 0; i < employees.size(); i++) {
+                if (employees.get(i).getId().equals(entity.getId())) {
+                    employees.set(i, entity);
+                    break;
+                }
+            }
+        } else {
+            // Add new
+            employees.add(entity);
+        }
         saveAll(employees);
         return entity;
     }
@@ -94,7 +106,7 @@ public class AdministrativeEmployeeRepository implements CsvRepository<Administr
         String[] parts = line.split(",", -1);
         return new AdministrativeEmployee(
                 parts[0], parts[1], parts[2], parts[3], parts[4], parts[5],
-                parts[6], parts[7], parts[8], parts[9].isEmpty() ? 0.0 : Double.parseDouble(parts[9])
+                parts[6], null, parts[8], parts[9].isEmpty() ? 0.0 : Double.parseDouble(parts[9])
         );
     }
 
@@ -107,7 +119,7 @@ public class AdministrativeEmployeeRepository implements CsvRepository<Administr
                 employee.getPhone(),
                 employee.getAddress(),
                 employee.getPosition(),
-                employee.getDepartmentId(),
+                "",
                 employee.getHireDate(),
                 String.valueOf(employee.getSalary())
         );

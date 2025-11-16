@@ -1,15 +1,24 @@
 package co.edu.umanizales.univesity_control.service;
 
 import co.edu.umanizales.univesity_control.model.Course;
+import co.edu.umanizales.univesity_control.repository.impl.CourseRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class CourseService {
 
+    private final CourseRepository repository;
     private final List<Course> courses = new ArrayList<>();
+
+    public void loadData() {
+        courses.clear();
+        courses.addAll(repository.findAll());
+    }
 
     public List<Course> findAll() {
         return new ArrayList<>(courses);
@@ -24,15 +33,41 @@ public class CourseService {
         throw new RuntimeException("Course not found with id: " + id);
     }
 
+    public Course create(Course course) {
+        // Verificar si el ID ya existe
+        for (Course current : courses) {
+            if (current.getId() != null && current.getId().equals(course.getId())) {
+                throw new RuntimeException("Course with id: " + course.getId() + " already exists");
+            }
+        }
+        courses.add(course);
+        repository.saveAll(courses);
+        return course;
+    }
+
+    public Course update(Course course) {
+        for (int i = 0; i < courses.size(); i++) {
+            Course current = courses.get(i);
+            if (current.getId() != null && current.getId().equals(course.getId())) {
+                courses.set(i, course);
+                repository.saveAll(courses);
+                return course;
+            }
+        }
+        throw new RuntimeException("Course not found with id: " + course.getId());
+    }
+
     public Course save(Course course) {
         for (int i = 0; i < courses.size(); i++) {
             Course current = courses.get(i);
             if (current.getId() != null && current.getId().equals(course.getId())) {
                 courses.set(i, course);
+                repository.save(course);
                 return course;
             }
         }
         courses.add(course);
+        repository.save(course);
         return course;
     }
 
@@ -41,6 +76,7 @@ public class CourseService {
             Course course = courses.get(i);
             if (course.getId() != null && course.getId().equals(id)) {
                 courses.remove(i);
+                repository.deleteById(id);
                 return;
             }
         }

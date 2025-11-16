@@ -16,14 +16,14 @@ public class Department {
     private String name;
     private String code;
     
-    // ID para persistencia CSV
-    private String facultyId;
-    private String headProfessorId;
-    
     // Referencias a objetos para relaciones (no se serializan en CSV)
     @JsonBackReference("faculty-departments")
     @JsonIgnore
     private Faculty faculty;
+    
+    @JsonBackReference("department-head")
+    @JsonIgnore
+    private Professor headProfessor;
     
     @JsonManagedReference("department-courses")
     @JsonIgnore
@@ -37,11 +37,11 @@ public class Department {
     @JsonIgnore
     private List<AdministrativeEmployee> employees = new ArrayList<>();
     
-    public Department(String id, String name, String code, String facultyId, String headProfessorId) {
+    public Department(String id, String name, String code, Faculty faculty, Professor headProfessor) {
         this.id = id;
         this.name = name;
         this.code = code;
-        this.facultyId = facultyId;
-        this.headProfessorId = headProfessorId;
+        this.faculty = faculty;
+        this.headProfessor = headProfessor;
     }
 }

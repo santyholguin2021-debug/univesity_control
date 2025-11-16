@@ -28,13 +28,13 @@ public class AdministrativeEmployeeController {
 
     @PostMapping
     public ResponseEntity<AdministrativeEmployee> create(@RequestBody AdministrativeEmployee employee) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(service.save(employee));
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.create(employee));
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<AdministrativeEmployee> update(@PathVariable String id, @RequestBody AdministrativeEmployee employee) {
         employee.setId(id);
-        return ResponseEntity.ok(service.save(employee));
+        return ResponseEntity.ok(service.update(employee));
     }
 
     @DeleteMapping("/{id}")

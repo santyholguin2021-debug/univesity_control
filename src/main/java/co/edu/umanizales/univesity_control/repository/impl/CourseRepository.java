@@ -64,8 +64,20 @@ public class CourseRepository implements CsvRepository<Course> {
     @Override
     public Course save(Course entity) {
         List<Course> courses = findAll();
-        courses.removeIf(c -> c.getId().equals(entity.getId()));
-        courses.add(entity);
+        // Check if ID already exists
+        boolean exists = courses.stream().anyMatch(c -> c.getId().equals(entity.getId()));
+        if (exists) {
+            // Update existing
+            for (int i = 0; i < courses.size(); i++) {
+                if (courses.get(i).getId().equals(entity.getId())) {
+                    courses.set(i, entity);
+                    break;
+                }
+            }
+        } else {
+            // Add new
+            courses.add(entity);
+        }
         saveAll(courses);
         return entity;
     }
@@ -95,7 +107,7 @@ public class CourseRepository implements CsvRepository<Course> {
         return new Course(
                 parts[0], parts[1], parts[2],
                 parts[3].isEmpty() ? 0 : Integer.parseInt(parts[3]),
-                parts[4], parts[5]
+                parts[4], null
         );
     }
 
@@ -106,7 +118,7 @@ public class CourseRepository implements CsvRepository<Course> {
                 course.getCode(),
                 String.valueOf(course.getCredits()),
                 course.getDescription(),
-                course.getDepartmentId()
+                ""
         );
     }
 }

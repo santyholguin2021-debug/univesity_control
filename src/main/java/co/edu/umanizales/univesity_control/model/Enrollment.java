@@ -11,8 +11,6 @@ public class Enrollment {
     private String id;
     
     // IDs para persistencia CSV
-    private String studentId;
-    private String courseId;
     
     // Referencias a objetos para relaciones (no se serializan en CSV)
     @JsonBackReference("student-enrollments")
@@ -28,11 +26,11 @@ public class Enrollment {
     private String status;
     private double grade;
     
-    public Enrollment(String id, String studentId, String courseId, String enrollmentDate, 
+    public Enrollment(String id, Student student, Course course, String enrollmentDate, 
                      String semester, String status, double grade) {
         this.id = id;
-        this.studentId = studentId;
-        this.courseId = courseId;
+        this.student = student;
+        this.course = course;
         this.enrollmentDate = enrollmentDate;
         this.semester = semester;
         this.status = status;

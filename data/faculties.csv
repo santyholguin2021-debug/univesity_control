@@ -1,1 +1,2 @@
-id,name,location
+id,name,code,deanId,description
+FAC001,Faculty of Engineering,ENG,,Engineering and Technology Faculty

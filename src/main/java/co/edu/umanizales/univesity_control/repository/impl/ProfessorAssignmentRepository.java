@@ -64,8 +64,20 @@ public class ProfessorAssignmentRepository implements CsvRepository<ProfessorAss
     @Override
     public ProfessorAssignment save(ProfessorAssignment entity) {
         List<ProfessorAssignment> assignments = findAll();
-        assignments.removeIf(a -> a.getId().equals(entity.getId()));
-        assignments.add(entity);
+        // Check if ID already exists
+        boolean exists = assignments.stream().anyMatch(a -> a.getId().equals(entity.getId()));
+        if (exists) {
+            // Update existing
+            for (int i = 0; i < assignments.size(); i++) {
+                if (assignments.get(i).getId().equals(entity.getId())) {
+                    assignments.set(i, entity);
+                    break;
+                }
+            }
+        } else {
+            // Add new
+            assignments.add(entity);
+        }
         saveAll(assignments);
         return entity;
     }
@@ -92,14 +104,14 @@ public class ProfessorAssignmentRepository implements CsvRepository<ProfessorAss
 
     private ProfessorAssignment parseAssignment(String line) {
         String[] parts = line.split(",", -1);
-        return new ProfessorAssignment(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5]);
+        return new ProfessorAssignment(parts[0], null, null, parts[3], parts[4], parts[5]);
     }
 
     private String toCSV(ProfessorAssignment assignment) {
         return String.join(",",
                 assignment.getId(),
-                assignment.getProfessorId(),
-                assignment.getCourseId(),
+                "",
+                "",
                 assignment.getSemester(),
                 assignment.getAssignmentDate(),
                 assignment.getSchedule()

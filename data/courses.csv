@@ -1,1 +1,2 @@
-id,code,name,credits,departmentId
+id,name,code,credits,description,departmentId
+COURSE001,Introduction to Java,CS101,3,Fundamentals of Java programming,
