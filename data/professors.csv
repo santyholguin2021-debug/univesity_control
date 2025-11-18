@@ -1,2 +1,11 @@
 id,firstName,lastName,email,phone,address,departmentId,specialization,hireDate,salary
 PROF001,Juan,García,juan.garcia@university.edu,3001234567,Calle 1 #123,,Software Engineering,2020-01-15,5000000.0
+PROF002,María,López,maria@uni.edu,3009876543,Calle 2,,Database,2019-08-20,5200000.0
+PROF003,Carlos,Martínez,carlos@uni.edu,3005551234,Calle 3,,Web,2021-03-10,4800000.0
+PROF004,Ana,Rodríguez,ana@uni.edu,3002223333,Calle 4,,Data,2021-06-01,5100000.0
+PROF005,Pedro,Sánchez,pedro@uni.edu,3004445555,Calle 5,,Cloud,2020-09-15,5300000.0
+PROF006,Laura,Gómez,laura@uni.edu,3006667777,Calle 6,,AI,2021-02-01,5400000.0
+PROF007,Roberto,Fernández,roberto@uni.edu,3008889999,Calle 7,,Security,2020-11-10,5250000.0
+PROF008,Sofía,Díaz,sofia@uni.edu,3001112222,Calle 8,,Mobile,2021-04-20,4900000.0
+PROF009,Miguel,Torres,miguel@uni.edu,3003334444,Calle 9,,DevOps,2020-07-01,5150000.0
+PROF010,Elena,Castillo,elena@uni.edu,3005556666,Calle 10,,Architecture,2019-05-15,5350000.0

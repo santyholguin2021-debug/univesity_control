@@ -1,2 +1,11 @@
 id,name,code,deanId,description
 FAC001,Faculty of Engineering,ENG,,Engineering and Technology Faculty
+FAC002,Faculty of Sciences,SCI,,Sciences
+FAC003,Faculty of Arts,ART,,Arts
+FAC004,Faculty of Medicine,MED,,Medicine
+FAC005,Faculty of Law,LAW,,Law
+FAC006,Faculty of Business,BUS,,Business
+FAC007,Faculty of Education,EDU,,Education
+FAC008,Faculty of Agriculture,AGR,,Agriculture
+FAC009,Faculty of Architecture,ARC,,Architecture
+FAC010,Faculty of Sports,SPO,,Sports

@@ -1,2 +1,11 @@
 id,firstName,lastName,email,phone,address,position,departmentId,hireDate,salary
 ADMIN001,María,Rodríguez,maria.rodriguez@university.edu,3005551234,Calle 10 #789,Registrar,,2021-06-01,3000000.0
+ADMIN002,Jorge,Sánchez,jorge@uni.edu,3007778888,Calle 25,HR Manager,,2020-03-15,3500000.0
+ADMIN003,Patricia,Gómez,patricia@uni.edu,3009999999,Calle 30,Finance Officer,,2019-09-01,3800000.0
+ADMIN004,David,López,david@uni.edu,3001112222,Calle 35,IT Director,,2018-05-10,4200000.0
+ADMIN005,Carmen,García,carmen@uni.edu,3003334444,Calle 40,Facilities Manager,,2020-11-20,3200000.0
+ADMIN006,Fernando,Martínez,fernando@uni.edu,3005556666,Calle 45,Dean,,2017-01-15,4500000.0
+ADMIN007,Beatriz,Fernández,beatriz@uni.edu,3007778888,Calle 50,Vice Dean,,2019-02-28,4000000.0
+ADMIN008,Raúl,Díaz,raul@uni.edu,3009990000,Calle 55,Secretary,,2021-08-10,2800000.0
+ADMIN009,Gabriela,Torres,gabriela@uni.edu,3001231234,Calle 60,Accountant,,2020-04-05,3100000.0
+ADMIN010,Héctor,Castillo,hector@uni.edu,3003453456,Calle 65,Administrative Assistant,,2022-01-17,2600000.0
