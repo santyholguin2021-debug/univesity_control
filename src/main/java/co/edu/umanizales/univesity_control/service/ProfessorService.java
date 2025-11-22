@@ -4,6 +4,8 @@ import co.edu.umanizales.univesity_control.model.Professor;
 import co.edu.umanizales.univesity_control.repository.impl.ProfessorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.http.HttpStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,15 +32,18 @@ public class ProfessorService {
                 return professor;
             }
         }
-        throw new RuntimeException("Professor not found with id: " + id);
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Professor not found with id: " + id);
     }
 
     public Professor create(Professor professor) {
         // Verificar si el ID ya existe
         for (Professor current : professors) {
             if (current.getId() != null && current.getId().equals(professor.getId())) {
-                throw new RuntimeException("Professor with id: " + professor.getId() + " already exists");
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Professor with id: " + professor.getId() + " already exists");
             }
+        }
+        if (professor.getDepartment() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "department is required for Professor");
         }
         professors.add(professor);
         repository.saveAll(professors);
@@ -46,6 +51,9 @@ public class ProfessorService {
     }
 
     public Professor update(Professor professor) {
+        if (professor.getDepartment() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "department is required for Professor");
+        }
         for (int i = 0; i < professors.size(); i++) {
             Professor current = professors.get(i);
             if (current.getId() != null && current.getId().equals(professor.getId())) {
@@ -54,7 +62,7 @@ public class ProfessorService {
                 return professor;
             }
         }
-        throw new RuntimeException("Professor not found with id: " + professor.getId());
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Professor not found with id: " + professor.getId());
     }
 
     public Professor save(Professor professor) {

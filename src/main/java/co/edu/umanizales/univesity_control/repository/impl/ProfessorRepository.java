@@ -17,7 +17,7 @@ public class ProfessorRepository implements CsvRepository<Professor> {
     private String storagePath;
 
     private static final String FILE_NAME = "professors.csv";
-    private static final String HEADER = "id,firstName,lastName,email,phone,address,departmentId,specialization,hireDate,salary";
+    private static final String HEADER = "id,firstName,lastName,email,phone,address,specialization,hireDate,salary";
 
     private String getFilePath() {
         return storagePath + File.separator + FILE_NAME;
@@ -106,7 +106,7 @@ public class ProfessorRepository implements CsvRepository<Professor> {
         String[] parts = line.split(",", -1);
         return new Professor(
                 parts[0], parts[1], parts[2], parts[3], parts[4], parts[5],
-                null, parts[7], parts[8], parts[9].isEmpty() ? 0.0 : Double.parseDouble(parts[9])
+                null, parts[6], parts[7], parts[8].isEmpty() ? 0.0 : Double.parseDouble(parts[8])
         );
     }
 
@@ -118,7 +118,6 @@ public class ProfessorRepository implements CsvRepository<Professor> {
                 professor.getEmail(),
                 professor.getPhone(),
                 professor.getAddress(),
-                "",
                 professor.getSpecialization(),
                 professor.getHireDate(),
                 String.valueOf(professor.getSalary())

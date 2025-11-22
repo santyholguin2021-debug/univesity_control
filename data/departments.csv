@@ -1,11 +1,2 @@
-id,name,code,facultyId,headProfessorId
-DEPT001,Computer Science,CS,,
-DEPT002,Mathematics,MATH,,
-DEPT003,Physics,PHY,,
-DEPT004,Chemistry,CHE,,
-DEPT005,Biology,BIO,,
-DEPT006,Civil Engineering,CE,,
-DEPT007,Electrical Engineering,EE,,
-DEPT008,Mechanical Engineering,ME,,
-DEPT009,History,HIS,,
-DEPT010,Languages,LAN,,
+id,name,code
+DEPT001,Computer Science,CS

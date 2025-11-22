@@ -1,3 +1,4 @@
+
 package co.edu.umanizales.univesity_control.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -17,22 +18,21 @@ public class Course {
     private String code;
     private int credits;
     private String description;
-    
+
     // ID para persistencia CSV
-    
+
     // Referencias a objetos para relaciones (no se serializan en CSV)
     @JsonBackReference("department-courses")
-    @JsonIgnore
     private Department department;
-    
+
     @JsonManagedReference("course-enrollments")
     @JsonIgnore
     private List<Enrollment> enrollments = new ArrayList<>();
-    
+
     @JsonManagedReference("course-assignments")
     @JsonIgnore
     private List<ProfessorAssignment> professorAssignments = new ArrayList<>();
-    
+
     public Course(String id, String name, String code, int credits, String description, Department department) {
         this.id = id;
         this.name = name;

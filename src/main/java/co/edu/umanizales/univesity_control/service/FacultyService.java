@@ -4,6 +4,8 @@ import co.edu.umanizales.univesity_control.model.Faculty;
 import co.edu.umanizales.univesity_control.repository.impl.FacultyRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.http.HttpStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,15 +32,18 @@ public class FacultyService {
                 return faculty;
             }
         }
-        throw new RuntimeException("Faculty not found with id: " + id);
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Faculty not found with id: " + id);
     }
 
     public Faculty create(Faculty faculty) {
         // Verificar si el ID ya existe
         for (Faculty current : faculties) {
             if (current.getId() != null && current.getId().equals(faculty.getId())) {
-                throw new RuntimeException("Faculty with id: " + faculty.getId() + " already exists");
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Faculty with id: " + faculty.getId() + " already exists");
             }
+        }
+        if (faculty.getDean() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "dean is required for Faculty");
         }
         faculties.add(faculty);
         repository.saveAll(faculties);
@@ -46,6 +51,9 @@ public class FacultyService {
     }
 
     public Faculty update(Faculty faculty) {
+        if (faculty.getDean() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "dean is required for Faculty");
+        }
         for (int i = 0; i < faculties.size(); i++) {
             Faculty current = faculties.get(i);
             if (current.getId() != null && current.getId().equals(faculty.getId())) {
@@ -54,7 +62,7 @@ public class FacultyService {
                 return faculty;
             }
         }
-        throw new RuntimeException("Faculty not found with id: " + faculty.getId());
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Faculty not found with id: " + faculty.getId());
     }
 
     public Faculty save(Faculty faculty) {

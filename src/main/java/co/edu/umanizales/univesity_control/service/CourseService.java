@@ -4,6 +4,8 @@ import co.edu.umanizales.univesity_control.model.Course;
 import co.edu.umanizales.univesity_control.repository.impl.CourseRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.http.HttpStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,15 +32,18 @@ public class CourseService {
                 return course;
             }
         }
-        throw new RuntimeException("Course not found with id: " + id);
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Course not found with id: " + id);
     }
 
     public Course create(Course course) {
         // Verificar si el ID ya existe
         for (Course current : courses) {
             if (current.getId() != null && current.getId().equals(course.getId())) {
-                throw new RuntimeException("Course with id: " + course.getId() + " already exists");
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Course with id: " + course.getId() + " already exists");
             }
+        }
+        if (course.getDepartment() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "department is required for Course");
         }
         courses.add(course);
         repository.saveAll(courses);
@@ -46,6 +51,9 @@ public class CourseService {
     }
 
     public Course update(Course course) {
+        if (course.getDepartment() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "department is required for Course");
+        }
         for (int i = 0; i < courses.size(); i++) {
             Course current = courses.get(i);
             if (current.getId() != null && current.getId().equals(course.getId())) {
@@ -54,7 +62,7 @@ public class CourseService {
                 return course;
             }
         }
-        throw new RuntimeException("Course not found with id: " + course.getId());
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Course not found with id: " + course.getId());
     }
 
     public Course save(Course course) {

@@ -17,7 +17,7 @@ public class FacultyRepository implements CsvRepository<Faculty> {
     private String storagePath;
 
     private static final String FILE_NAME = "faculties.csv";
-    private static final String HEADER = "id,name,code,deanId,description";
+    private static final String HEADER = "id,name,code,description";
 
     private String getFilePath() {
         return storagePath + File.separator + FILE_NAME;
@@ -104,7 +104,7 @@ public class FacultyRepository implements CsvRepository<Faculty> {
 
     private Faculty parseFaculty(String line) {
         String[] parts = line.split(",", -1);
-        return new Faculty(parts[0], parts[1], parts[2], null, parts[4]);
+        return new Faculty(parts[0], parts[1], parts[2], null, parts[3]);
     }
 
     private String toCSV(Faculty faculty) {
@@ -112,7 +112,6 @@ public class FacultyRepository implements CsvRepository<Faculty> {
                 faculty.getId(),
                 faculty.getName(),
                 faculty.getCode(),
-                "",
                 faculty.getDescription()
         );
     }

@@ -17,7 +17,7 @@ public class CourseRepository implements CsvRepository<Course> {
     private String storagePath;
 
     private static final String FILE_NAME = "courses.csv";
-    private static final String HEADER = "id,name,code,credits,description,departmentId";
+    private static final String HEADER = "id,name,code,credits,description";
 
     private String getFilePath() {
         return storagePath + File.separator + FILE_NAME;
@@ -117,8 +117,7 @@ public class CourseRepository implements CsvRepository<Course> {
                 course.getName(),
                 course.getCode(),
                 String.valueOf(course.getCredits()),
-                course.getDescription(),
-                ""
+                course.getDescription()
         );
     }
 }

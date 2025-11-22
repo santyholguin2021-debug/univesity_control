@@ -9,25 +9,23 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Enrollment {
     private String id;
-    
+
     // IDs para persistencia CSV
-    
+
     // Referencias a objetos para relaciones (no se serializan en CSV)
     @JsonBackReference("student-enrollments")
-    @JsonIgnore
     private Student student;
-    
+
     @JsonBackReference("course-enrollments")
-    @JsonIgnore
     private Course course;
-    
+
     private String enrollmentDate;
     private String semester;
     private String status;
     private double grade;
-    
-    public Enrollment(String id, Student student, Course course, String enrollmentDate, 
-                     String semester, String status, double grade) {
+
+    public Enrollment(String id, Student student, Course course, String enrollmentDate,
+                      String semester, String status, double grade) {
         this.id = id;
         this.student = student;
         this.course = course;

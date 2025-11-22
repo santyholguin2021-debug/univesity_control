@@ -1,11 +1,2 @@
 id,name,building,capacity,type,equipment
 CLASS001,Room 101,null,40,null,null
-CLASS002,Room 102,null,35,null,null
-CLASS003,Lab 201,null,30,null,null
-CLASS004,Auditorium,null,200,null,null
-CLASS005,Room 103,null,45,null,null
-CLASS006,Lab 202,null,25,null,null
-CLASS007,Room 201,null,50,null,null
-CLASS008,Seminar Room A,null,20,null,null
-CLASS009,Seminar Room B,null,20,null,null
-CLASS010,Conference Hall,null,150,null,null

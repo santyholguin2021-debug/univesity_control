@@ -1,11 +1,2 @@
-id,professorId,courseId,semester,assignmentDate,schedule
-ASSIGN001,,,2024-1,2024-01-10,null
-ASSIGN002,,,2024-2,2024-07-15,null
-ASSIGN003,,,2025-1,2025-01-08,null
-ASSIGN004,,,2025-2,2025-07-10,null
-ASSIGN005,,,2023-1,2023-01-15,null
-ASSIGN006,,,2023-2,2023-07-20,null
-ASSIGN007,,,2022-1,2022-01-12,null
-ASSIGN008,,,2022-2,2022-07-18,null
-ASSIGN009,,,2021-1,2021-01-20,null
-ASSIGN010,,,2021-2,2021-07-25,null
+id,semester,assignmentDate,schedule
+ASSIGN001,2024-1,2024-01-10,null

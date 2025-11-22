@@ -1,11 +1,2 @@
-id,name,code,credits,description,departmentId
-COURSE001,Introduction to Java,CS101,3,Fundamentals of Java programming,
-COURSE002,Python,CS102,3,Python,
-COURSE003,Database,CS201,4,Database,
-COURSE004,Web Dev,CS202,4,Web,
-COURSE005,C++,CS103,3,C++,
-COURSE006,Data Structures,CS203,4,DSA,
-COURSE007,AI,CS301,4,AI,
-COURSE008,Cloud,CS302,3,Cloud,
-COURSE009,Security,CS303,3,Security,
-COURSE010,Mobile,CS304,4,Mobile,
+id,name,code,credits,description
+COURSE001,Java,CS101,3,Java

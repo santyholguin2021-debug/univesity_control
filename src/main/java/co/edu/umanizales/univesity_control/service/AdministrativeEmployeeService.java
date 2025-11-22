@@ -4,6 +4,8 @@ import co.edu.umanizales.univesity_control.model.AdministrativeEmployee;
 import co.edu.umanizales.univesity_control.repository.impl.AdministrativeEmployeeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.http.HttpStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,15 +32,18 @@ public class AdministrativeEmployeeService {
                 return employee;
             }
         }
-        throw new RuntimeException("Administrative Employee not found with id: " + id);
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Administrative Employee not found with id: " + id);
     }
 
     public AdministrativeEmployee create(AdministrativeEmployee employee) {
         // Verificar si el ID ya existe
         for (AdministrativeEmployee current : employees) {
             if (current.getId() != null && current.getId().equals(employee.getId())) {
-                throw new RuntimeException("Administrative Employee with id: " + employee.getId() + " already exists");
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Administrative Employee with id: " + employee.getId() + " already exists");
             }
+        }
+        if (employee.getDepartment() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "department is required for AdministrativeEmployee");
         }
         employees.add(employee);
         repository.saveAll(employees);
@@ -46,6 +51,9 @@ public class AdministrativeEmployeeService {
     }
 
     public AdministrativeEmployee update(AdministrativeEmployee employee) {
+        if (employee.getDepartment() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "department is required for AdministrativeEmployee");
+        }
         for (int i = 0; i < employees.size(); i++) {
             AdministrativeEmployee current = employees.get(i);
             if (current.getId() != null && current.getId().equals(employee.getId())) {
@@ -54,7 +62,7 @@ public class AdministrativeEmployeeService {
                 return employee;
             }
         }
-        throw new RuntimeException("Administrative Employee not found with id: " + employee.getId());
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Administrative Employee not found with id: " + employee.getId());
     }
 
     public AdministrativeEmployee save(AdministrativeEmployee employee) {

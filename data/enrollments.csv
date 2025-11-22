@@ -1,11 +1,2 @@
-id,studentId,courseId,enrollmentDate,semester,status,grade
-1,,,2025-01-15,2025-1,Activo,4.5
-2,,,2025-01-20,2025-1,Activo,4.7
-3,,,2025-01-25,2025-1,Activo,4.3
-4,,,2025-02-01,2025-1,Activo,4.8
-5,,,2025-02-05,2025-1,Activo,4.2
-6,,,2025-02-10,2025-1,Activo,4.6
-7,,,2025-02-15,2025-1,Activo,4.4
-8,,,2025-02-20,2025-1,Activo,4.9
-9,,,2025-02-25,2025-1,Activo,4.1
-10,,,2025-03-01,2025-1,Activo,4.7
+id,enrollmentDate,semester,status,grade
+ENR001,2025-01-15,2025-1,Activo,4.5

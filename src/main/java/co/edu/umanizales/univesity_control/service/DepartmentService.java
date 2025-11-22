@@ -4,6 +4,8 @@ import co.edu.umanizales.univesity_control.model.Department;
 import co.edu.umanizales.univesity_control.repository.impl.DepartmentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.http.HttpStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,15 +32,21 @@ public class DepartmentService {
                 return department;
             }
         }
-        throw new RuntimeException("Department not found with id: " + id);
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Department not found with id: " + id);
     }
 
     public Department create(Department department) {
         // Verificar si el ID ya existe
         for (Department current : departments) {
             if (current.getId() != null && current.getId().equals(department.getId())) {
-                throw new RuntimeException("Department with id: " + department.getId() + " already exists");
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Department with id: " + department.getId() + " already exists");
             }
+        }
+        if (department.getFaculty() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "faculty is required for Department");
+        }
+        if (department.getHeadProfessor() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "headProfessor is required for Department");
         }
         departments.add(department);
         repository.saveAll(departments);
@@ -46,6 +54,12 @@ public class DepartmentService {
     }
 
     public Department update(Department department) {
+        if (department.getFaculty() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "faculty is required for Department");
+        }
+        if (department.getHeadProfessor() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "headProfessor is required for Department");
+        }
         for (int i = 0; i < departments.size(); i++) {
             Department current = departments.get(i);
             if (current.getId() != null && current.getId().equals(department.getId())) {
@@ -54,7 +68,7 @@ public class DepartmentService {
                 return department;
             }
         }
-        throw new RuntimeException("Department not found with id: " + department.getId());
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Department not found with id: " + department.getId());
     }
 
     public Department save(Department department) {

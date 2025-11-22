@@ -1,3 +1,4 @@
+
 {
   "info": {
     "name": "University Control API",
@@ -44,7 +45,7 @@
           "request": {
             "method": "POST",
             "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"FAC001\", \"name\": \"Faculty of Engineering\", \"code\": \"ENG\", \"description\": \"Engineering\"}"},
+            "body": {"mode": "raw", "raw": "{\"id\": \"FAC001\", \"name\": \"Faculty of Engineering\", \"code\": \"ENG\", \"description\": \"Engineering\", \"dean\": {\"id\": \"PROF001\"}}"},
             "url": {"raw": "{{baseUrl}}/api/faculties", "host": ["{{baseUrl}}"], "path": ["api", "faculties"]}
           }
         },
@@ -54,78 +55,6 @@
             "method": "POST",
             "header": [{"key": "Content-Type", "value": "application/json"}],
             "body": {"mode": "raw", "raw": "{\"id\": \"FAC002\", \"name\": \"Faculty of Sciences\", \"code\": \"SCI\", \"description\": \"Sciences\"}"},
-            "url": {"raw": "{{baseUrl}}/api/faculties", "host": ["{{baseUrl}}"], "path": ["api", "faculties"]}
-          }
-        },
-        {
-          "name": "Create Faculty 03",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"FAC003\", \"name\": \"Faculty of Arts\", \"code\": \"ART\", \"description\": \"Arts\"}"},
-            "url": {"raw": "{{baseUrl}}/api/faculties", "host": ["{{baseUrl}}"], "path": ["api", "faculties"]}
-          }
-        },
-        {
-          "name": "Create Faculty 04",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"FAC004\", \"name\": \"Faculty of Medicine\", \"code\": \"MED\", \"description\": \"Medicine\"}"},
-            "url": {"raw": "{{baseUrl}}/api/faculties", "host": ["{{baseUrl}}"], "path": ["api", "faculties"]}
-          }
-        },
-        {
-          "name": "Create Faculty 05",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"FAC005\", \"name\": \"Faculty of Law\", \"code\": \"LAW\", \"description\": \"Law\"}"},
-            "url": {"raw": "{{baseUrl}}/api/faculties", "host": ["{{baseUrl}}"], "path": ["api", "faculties"]}
-          }
-        },
-        {
-          "name": "Create Faculty 06",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"FAC006\", \"name\": \"Faculty of Business\", \"code\": \"BUS\", \"description\": \"Business\"}"},
-            "url": {"raw": "{{baseUrl}}/api/faculties", "host": ["{{baseUrl}}"], "path": ["api", "faculties"]}
-          }
-        },
-        {
-          "name": "Create Faculty 07",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"FAC007\", \"name\": \"Faculty of Education\", \"code\": \"EDU\", \"description\": \"Education\"}"},
-            "url": {"raw": "{{baseUrl}}/api/faculties", "host": ["{{baseUrl}}"], "path": ["api", "faculties"]}
-          }
-        },
-        {
-          "name": "Create Faculty 08",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"FAC008\", \"name\": \"Faculty of Agriculture\", \"code\": \"AGR\", \"description\": \"Agriculture\"}"},
-            "url": {"raw": "{{baseUrl}}/api/faculties", "host": ["{{baseUrl}}"], "path": ["api", "faculties"]}
-          }
-        },
-        {
-          "name": "Create Faculty 09",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"FAC009\", \"name\": \"Faculty of Architecture\", \"code\": \"ARC\", \"description\": \"Architecture\"}"},
-            "url": {"raw": "{{baseUrl}}/api/faculties", "host": ["{{baseUrl}}"], "path": ["api", "faculties"]}
-          }
-        },
-        {
-          "name": "Create Faculty 10",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"FAC010\", \"name\": \"Faculty of Sports\", \"code\": \"SPO\", \"description\": \"Sports\"}"},
             "url": {"raw": "{{baseUrl}}/api/faculties", "host": ["{{baseUrl}}"], "path": ["api", "faculties"]}
           }
         },
@@ -141,7 +70,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"id\": \"FAC001\",\n  \"name\": \"Faculty of Engineering\",\n  \"code\": \"ENG\",\n  \"description\": \"Updated Engineering Faculty\"\n}"
+              "raw": "{\n  \"id\": \"FAC001\",\n  \"name\": \"Faculty of Engineering\",\n  \"code\": \"ENG\",\n  \"description\": \"Updated Engineering Faculty\",\n  \"dean\": {\"id\": \"PROF001\"}\n}"
             },
             "url": {
               "raw": "{{baseUrl}}/api/faculties/FAC001",
@@ -196,88 +125,7 @@
           "request": {
             "method": "POST",
             "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"DEPT001\", \"name\": \"Computer Science\", \"code\": \"CS\", \"description\": \"CS\"}"},
-            "url": {"raw": "{{baseUrl}}/api/departments", "host": ["{{baseUrl}}"], "path": ["api", "departments"]}
-          }
-        },
-        {
-          "name": "Create Department 02",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"DEPT002\", \"name\": \"Mathematics\", \"code\": \"MATH\", \"description\": \"Math\"}"},
-            "url": {"raw": "{{baseUrl}}/api/departments", "host": ["{{baseUrl}}"], "path": ["api", "departments"]}
-          }
-        },
-        {
-          "name": "Create Department 03",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"DEPT003\", \"name\": \"Physics\", \"code\": \"PHY\", \"description\": \"Physics\"}"},
-            "url": {"raw": "{{baseUrl}}/api/departments", "host": ["{{baseUrl}}"], "path": ["api", "departments"]}
-          }
-        },
-        {
-          "name": "Create Department 04",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"DEPT004\", \"name\": \"Chemistry\", \"code\": \"CHE\", \"description\": \"Chemistry\"}"},
-            "url": {"raw": "{{baseUrl}}/api/departments", "host": ["{{baseUrl}}"], "path": ["api", "departments"]}
-          }
-        },
-        {
-          "name": "Create Department 05",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"DEPT005\", \"name\": \"Biology\", \"code\": \"BIO\", \"description\": \"Biology\"}"},
-            "url": {"raw": "{{baseUrl}}/api/departments", "host": ["{{baseUrl}}"], "path": ["api", "departments"]}
-          }
-        },
-        {
-          "name": "Create Department 06",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"DEPT006\", \"name\": \"Civil Engineering\", \"code\": \"CE\", \"description\": \"Civil Eng\"}"},
-            "url": {"raw": "{{baseUrl}}/api/departments", "host": ["{{baseUrl}}"], "path": ["api", "departments"]}
-          }
-        },
-        {
-          "name": "Create Department 07",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"DEPT007\", \"name\": \"Electrical Engineering\", \"code\": \"EE\", \"description\": \"Electrical Eng\"}"},
-            "url": {"raw": "{{baseUrl}}/api/departments", "host": ["{{baseUrl}}"], "path": ["api", "departments"]}
-          }
-        },
-        {
-          "name": "Create Department 08",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"DEPT008\", \"name\": \"Mechanical Engineering\", \"code\": \"ME\", \"description\": \"Mechanical Eng\"}"},
-            "url": {"raw": "{{baseUrl}}/api/departments", "host": ["{{baseUrl}}"], "path": ["api", "departments"]}
-          }
-        },
-        {
-          "name": "Create Department 09",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"DEPT009\", \"name\": \"History\", \"code\": \"HIS\", \"description\": \"History\"}"},
-            "url": {"raw": "{{baseUrl}}/api/departments", "host": ["{{baseUrl}}"], "path": ["api", "departments"]}
-          }
-        },
-        {
-          "name": "Create Department 10",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"DEPT010\", \"name\": \"Languages\", \"code\": \"LAN\", \"description\": \"Languages\"}"},
+            "body": {"mode": "raw", "raw": "{\"id\": \"DEPT001\", \"name\": \"Computer Science\", \"code\": \"CS\", \"description\": \"CS\", \"faculty\": {\"id\": \"FAC001\"}, \"headProfessor\": {\"id\": \"PROF001\"}}"},
             "url": {"raw": "{{baseUrl}}/api/departments", "host": ["{{baseUrl}}"], "path": ["api", "departments"]}
           }
         },
@@ -293,7 +141,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"id\": \"DEPT001\",\n  \"name\": \"Computer Science\",\n  \"code\": \"CS\",\n  \"description\": \"Updated CS Department\"\n}"
+              "raw": "{\n  \"id\": \"DEPT001\",\n  \"name\": \"Computer Science\",\n  \"code\": \"CS\",\n  \"description\": \"Updated CS Department\",\n  \"faculty\": {\"id\": \"FAC001\"},\n  \"headProfessor\": {\"id\": \"PROF001\"}\n}"
             },
             "url": {
               "raw": "{{baseUrl}}/api/departments/DEPT001",
@@ -348,88 +196,7 @@
           "request": {
             "method": "POST",
             "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"COURSE001\", \"name\": \"Java\", \"code\": \"CS101\", \"credits\": 3, \"description\": \"Java\"}"},
-            "url": {"raw": "{{baseUrl}}/api/courses", "host": ["{{baseUrl}}"], "path": ["api", "courses"]}
-          }
-        },
-        {
-          "name": "Create Course 02",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"COURSE002\", \"name\": \"Python\", \"code\": \"CS102\", \"credits\": 3, \"description\": \"Python\"}"},
-            "url": {"raw": "{{baseUrl}}/api/courses", "host": ["{{baseUrl}}"], "path": ["api", "courses"]}
-          }
-        },
-        {
-          "name": "Create Course 03",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"COURSE003\", \"name\": \"Database\", \"code\": \"CS201\", \"credits\": 4, \"description\": \"Database\"}"},
-            "url": {"raw": "{{baseUrl}}/api/courses", "host": ["{{baseUrl}}"], "path": ["api", "courses"]}
-          }
-        },
-        {
-          "name": "Create Course 04",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"COURSE004\", \"name\": \"Web Dev\", \"code\": \"CS202\", \"credits\": 4, \"description\": \"Web\"}"},
-            "url": {"raw": "{{baseUrl}}/api/courses", "host": ["{{baseUrl}}"], "path": ["api", "courses"]}
-          }
-        },
-        {
-          "name": "Create Course 05",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"COURSE005\", \"name\": \"C++\", \"code\": \"CS103\", \"credits\": 3, \"description\": \"C++\"}"},
-            "url": {"raw": "{{baseUrl}}/api/courses", "host": ["{{baseUrl}}"], "path": ["api", "courses"]}
-          }
-        },
-        {
-          "name": "Create Course 06",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"COURSE006\", \"name\": \"Data Structures\", \"code\": \"CS203\", \"credits\": 4, \"description\": \"DSA\"}"},
-            "url": {"raw": "{{baseUrl}}/api/courses", "host": ["{{baseUrl}}"], "path": ["api", "courses"]}
-          }
-        },
-        {
-          "name": "Create Course 07",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"COURSE007\", \"name\": \"AI\", \"code\": \"CS301\", \"credits\": 4, \"description\": \"AI\"}"},
-            "url": {"raw": "{{baseUrl}}/api/courses", "host": ["{{baseUrl}}"], "path": ["api", "courses"]}
-          }
-        },
-        {
-          "name": "Create Course 08",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"COURSE008\", \"name\": \"Cloud\", \"code\": \"CS302\", \"credits\": 3, \"description\": \"Cloud\"}"},
-            "url": {"raw": "{{baseUrl}}/api/courses", "host": ["{{baseUrl}}"], "path": ["api", "courses"]}
-          }
-        },
-        {
-          "name": "Create Course 09",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"COURSE009\", \"name\": \"Security\", \"code\": \"CS303\", \"credits\": 3, \"description\": \"Security\"}"},
-            "url": {"raw": "{{baseUrl}}/api/courses", "host": ["{{baseUrl}}"], "path": ["api", "courses"]}
-          }
-        },
-        {
-          "name": "Create Course 10",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"COURSE010\", \"name\": \"Mobile\", \"code\": \"CS304\", \"credits\": 4, \"description\": \"Mobile\"}"},
+            "body": {"mode": "raw", "raw": "{\"id\": \"COURSE001\", \"name\": \"Java\", \"code\": \"CS101\", \"credits\": 3, \"description\": \"Java\", \"department\": {\"id\": \"DEPT001\"}}"},
             "url": {"raw": "{{baseUrl}}/api/courses", "host": ["{{baseUrl}}"], "path": ["api", "courses"]}
           }
         },
@@ -445,7 +212,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"id\": \"COURSE001\",\n  \"name\": \"Introduction to Java\",\n  \"code\": \"CS101\",\n  \"credits\": 4,\n  \"description\": \"Advanced Java programming\"\n}"
+              "raw": "{\n  \"id\": \"COURSE001\",\n  \"name\": \"Introduction to Java\",\n  \"code\": \"CS101\",\n  \"credits\": 4,\n  \"description\": \"Advanced Java programming\",\n  \"department\": {\"id\": \"DEPT001\"}\n}"
             },
             "url": {
               "raw": "{{baseUrl}}/api/courses/COURSE001",
@@ -500,88 +267,7 @@
           "request": {
             "method": "POST",
             "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"PROF001\", \"firstName\": \"Juan\", \"lastName\": \"García\", \"email\": \"juan@uni.edu\", \"phone\": \"3001234567\", \"address\": \"Calle 1\", \"specialization\": \"Software\", \"hireDate\": \"2020-01-15\", \"salary\": 5000000}"},
-            "url": {"raw": "{{baseUrl}}/api/professors", "host": ["{{baseUrl}}"], "path": ["api", "professors"]}
-          }
-        },
-        {
-          "name": "Create Professor 02",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"PROF002\", \"firstName\": \"María\", \"lastName\": \"López\", \"email\": \"maria@uni.edu\", \"phone\": \"3009876543\", \"address\": \"Calle 2\", \"specialization\": \"Database\", \"hireDate\": \"2019-08-20\", \"salary\": 5200000}"},
-            "url": {"raw": "{{baseUrl}}/api/professors", "host": ["{{baseUrl}}"], "path": ["api", "professors"]}
-          }
-        },
-        {
-          "name": "Create Professor 03",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"PROF003\", \"firstName\": \"Carlos\", \"lastName\": \"Martínez\", \"email\": \"carlos@uni.edu\", \"phone\": \"3005551234\", \"address\": \"Calle 3\", \"specialization\": \"Web\", \"hireDate\": \"2021-03-10\", \"salary\": 4800000}"},
-            "url": {"raw": "{{baseUrl}}/api/professors", "host": ["{{baseUrl}}"], "path": ["api", "professors"]}
-          }
-        },
-        {
-          "name": "Create Professor 04",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"PROF004\", \"firstName\": \"Ana\", \"lastName\": \"Rodríguez\", \"email\": \"ana@uni.edu\", \"phone\": \"3002223333\", \"address\": \"Calle 4\", \"specialization\": \"Data\", \"hireDate\": \"2021-06-01\", \"salary\": 5100000}"},
-            "url": {"raw": "{{baseUrl}}/api/professors", "host": ["{{baseUrl}}"], "path": ["api", "professors"]}
-          }
-        },
-        {
-          "name": "Create Professor 05",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"PROF005\", \"firstName\": \"Pedro\", \"lastName\": \"Sánchez\", \"email\": \"pedro@uni.edu\", \"phone\": \"3004445555\", \"address\": \"Calle 5\", \"specialization\": \"Cloud\", \"hireDate\": \"2020-09-15\", \"salary\": 5300000}"},
-            "url": {"raw": "{{baseUrl}}/api/professors", "host": ["{{baseUrl}}"], "path": ["api", "professors"]}
-          }
-        },
-        {
-          "name": "Create Professor 06",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"PROF006\", \"firstName\": \"Laura\", \"lastName\": \"Gómez\", \"email\": \"laura@uni.edu\", \"phone\": \"3006667777\", \"address\": \"Calle 6\", \"specialization\": \"AI\", \"hireDate\": \"2021-02-01\", \"salary\": 5400000}"},
-            "url": {"raw": "{{baseUrl}}/api/professors", "host": ["{{baseUrl}}"], "path": ["api", "professors"]}
-          }
-        },
-        {
-          "name": "Create Professor 07",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"PROF007\", \"firstName\": \"Roberto\", \"lastName\": \"Fernández\", \"email\": \"roberto@uni.edu\", \"phone\": \"3008889999\", \"address\": \"Calle 7\", \"specialization\": \"Security\", \"hireDate\": \"2020-11-10\", \"salary\": 5250000}"},
-            "url": {"raw": "{{baseUrl}}/api/professors", "host": ["{{baseUrl}}"], "path": ["api", "professors"]}
-          }
-        },
-        {
-          "name": "Create Professor 08",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"PROF008\", \"firstName\": \"Sofía\", \"lastName\": \"Díaz\", \"email\": \"sofia@uni.edu\", \"phone\": \"3001112222\", \"address\": \"Calle 8\", \"specialization\": \"Mobile\", \"hireDate\": \"2021-04-20\", \"salary\": 4900000}"},
-            "url": {"raw": "{{baseUrl}}/api/professors", "host": ["{{baseUrl}}"], "path": ["api", "professors"]}
-          }
-        },
-        {
-          "name": "Create Professor 09",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"PROF009\", \"firstName\": \"Miguel\", \"lastName\": \"Torres\", \"email\": \"miguel@uni.edu\", \"phone\": \"3003334444\", \"address\": \"Calle 9\", \"specialization\": \"DevOps\", \"hireDate\": \"2020-07-01\", \"salary\": 5150000}"},
-            "url": {"raw": "{{baseUrl}}/api/professors", "host": ["{{baseUrl}}"], "path": ["api", "professors"]}
-          }
-        },
-        {
-          "name": "Create Professor 10",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"PROF010\", \"firstName\": \"Elena\", \"lastName\": \"Castillo\", \"email\": \"elena@uni.edu\", \"phone\": \"3005556666\", \"address\": \"Calle 10\", \"specialization\": \"Architecture\", \"hireDate\": \"2019-05-15\", \"salary\": 5350000}"},
+            "body": {"mode": "raw", "raw": "{\"id\": \"PROF001\", \"firstName\": \"Juan\", \"lastName\": \"García\", \"email\": \"juan@uni.edu\", \"phone\": \"3001234567\", \"address\": \"Calle 1\", \"specialization\": \"Software\", \"hireDate\": \"2020-01-15\", \"salary\": 5000000, \"department\": {\"id\": \"DEPT001\"}}"},
             "url": {"raw": "{{baseUrl}}/api/professors", "host": ["{{baseUrl}}"], "path": ["api", "professors"]}
           }
         },
@@ -597,7 +283,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"id\": \"PROF001\",\n  \"firstName\": \"Juan\",\n  \"lastName\": \"García\",\n  \"email\": \"juan.garcia@university.edu\",\n  \"phone\": \"3001234567\",\n  \"address\": \"Calle 1 #123\",\n  \"specialization\": \"Software Engineering\",\n  \"hireDate\": \"2020-01-15\",\n  \"salary\": 5500000\n}"
+              "raw": "{\n  \"id\": \"PROF001\",\n  \"firstName\": \"Juan\",\n  \"lastName\": \"García\",\n  \"email\": \"juan.garcia@university.edu\",\n  \"phone\": \"3001234567\",\n  \"address\": \"Calle 1 #123\",\n  \"specialization\": \"Software Engineering\",\n  \"hireDate\": \"2020-01-15\",\n  \"salary\": 5500000,\n  \"department\": {\"id\": \"DEPT001\"}\n}"
             },
             "url": {
               "raw": "{{baseUrl}}/api/professors/PROF001",
@@ -657,87 +343,6 @@
           }
         },
         {
-          "name": "Create Student 02",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"STU002\", \"firstName\": \"Ana\", \"lastName\": \"Rodríguez\", \"email\": \"ana@uni.edu\", \"phone\": \"3001112222\", \"address\": \"Calle B\", \"enrollmentDate\": \"2023-02-15\", \"major\": \"SE\", \"gpa\": 3.9}"},
-            "url": {"raw": "{{baseUrl}}/api/students", "host": ["{{baseUrl}}"], "path": ["api", "students"]}
-          }
-        },
-        {
-          "name": "Create Student 03",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"STU003\", \"firstName\": \"Pedro\", \"lastName\": \"García\", \"email\": \"pedro@uni.edu\", \"phone\": \"3003334444\", \"address\": \"Calle C\", \"enrollmentDate\": \"2023-03-10\", \"major\": \"IT\", \"gpa\": 3.7}"},
-            "url": {"raw": "{{baseUrl}}/api/students", "host": ["{{baseUrl}}"], "path": ["api", "students"]}
-          }
-        },
-        {
-          "name": "Create Student 04",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"STU004\", \"firstName\": \"Laura\", \"lastName\": \"Martínez\", \"email\": \"laura@uni.edu\", \"phone\": \"3005556666\", \"address\": \"Calle D\", \"enrollmentDate\": \"2023-04-05\", \"major\": \"DS\", \"gpa\": 3.95}"},
-            "url": {"raw": "{{baseUrl}}/api/students", "host": ["{{baseUrl}}"], "path": ["api", "students"]}
-          }
-        },
-        {
-          "name": "Create Student 05",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"STU005\", \"firstName\": \"Diego\", \"lastName\": \"Sánchez\", \"email\": \"diego@uni.edu\", \"phone\": \"3007778888\", \"address\": \"Calle E\", \"enrollmentDate\": \"2023-05-01\", \"major\": \"WD\", \"gpa\": 3.6}"},
-            "url": {"raw": "{{baseUrl}}/api/students", "host": ["{{baseUrl}}"], "path": ["api", "students"]}
-          }
-        },
-        {
-          "name": "Create Student 06",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"STU006\", \"firstName\": \"Sofía\", \"lastName\": \"Gómez\", \"email\": \"sofia@uni.edu\", \"phone\": \"3009990000\", \"address\": \"Calle F\", \"enrollmentDate\": \"2023-06-15\", \"major\": \"CS\", \"gpa\": 3.85}"},
-            "url": {"raw": "{{baseUrl}}/api/students", "host": ["{{baseUrl}}"], "path": ["api", "students"]}
-          }
-        },
-        {
-          "name": "Create Student 07",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"STU007\", \"firstName\": \"Roberto\", \"lastName\": \"Díaz\", \"email\": \"roberto@uni.edu\", \"phone\": \"3001231234\", \"address\": \"Calle G\", \"enrollmentDate\": \"2023-07-10\", \"major\": \"IT\", \"gpa\": 3.75}"},
-            "url": {"raw": "{{baseUrl}}/api/students", "host": ["{{baseUrl}}"], "path": ["api", "students"]}
-          }
-        },
-        {
-          "name": "Create Student 08",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"STU008\", \"firstName\": \"Marta\", \"lastName\": \"Fernández\", \"email\": \"marta@uni.edu\", \"phone\": \"3003453456\", \"address\": \"Calle H\", \"enrollmentDate\": \"2023-08-20\", \"major\": \"SE\", \"gpa\": 3.88}"},
-            "url": {"raw": "{{baseUrl}}/api/students", "host": ["{{baseUrl}}"], "path": ["api", "students"]}
-          }
-        },
-        {
-          "name": "Create Student 09",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"STU009\", \"firstName\": \"Javier\", \"lastName\": \"Torres\", \"email\": \"javier@uni.edu\", \"phone\": \"3005675678\", \"address\": \"Calle I\", \"enrollmentDate\": \"2023-09-05\", \"major\": \"AI\", \"gpa\": 3.92}"},
-            "url": {"raw": "{{baseUrl}}/api/students", "host": ["{{baseUrl}}"], "path": ["api", "students"]}
-          }
-        },
-        {
-          "name": "Create Student 10",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"STU010\", \"firstName\": \"Isabela\", \"lastName\": \"Castillo\", \"email\": \"isabela@uni.edu\", \"phone\": \"3007897898\", \"address\": \"Calle J\", \"enrollmentDate\": \"2023-10-01\", \"major\": \"CS\", \"gpa\": 3.82}"},
-            "url": {"raw": "{{baseUrl}}/api/students", "host": ["{{baseUrl}}"], "path": ["api", "students"]}
-          }
-        },
-        {
           "name": "Update Student",
           "request": {
             "method": "PUT",
@@ -793,9 +398,9 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/api/enrollments/1",
+              "raw": "{{baseUrl}}/api/enrollments/ENR001",
               "host": ["{{baseUrl}}"],
-              "path": ["api", "enrollments", "1"]
+              "path": ["api", "enrollments", "ENR001"]
             }
           }
         },
@@ -804,88 +409,7 @@
           "request": {
             "method": "POST",
             "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"1\", \"studentId\": \"1\", \"courseId\": \"1\", \"enrollmentDate\": \"2025-01-15\", \"semester\": \"2025-1\", \"status\": \"Activo\", \"grade\": 4.5}"},
-            "url": {"raw": "{{baseUrl}}/api/enrollments", "host": ["{{baseUrl}}"], "path": ["api", "enrollments"]}
-          }
-        },
-        {
-          "name": "Create Enrollment 02",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"2\", \"studentId\": \"2\", \"courseId\": \"2\", \"enrollmentDate\": \"2025-01-20\", \"semester\": \"2025-1\", \"status\": \"Activo\", \"grade\": 4.7}"},
-            "url": {"raw": "{{baseUrl}}/api/enrollments", "host": ["{{baseUrl}}"], "path": ["api", "enrollments"]}
-          }
-        },
-        {
-          "name": "Create Enrollment 03",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"3\", \"studentId\": \"3\", \"courseId\": \"3\", \"enrollmentDate\": \"2025-01-25\", \"semester\": \"2025-1\", \"status\": \"Activo\", \"grade\": 4.3}"},
-            "url": {"raw": "{{baseUrl}}/api/enrollments", "host": ["{{baseUrl}}"], "path": ["api", "enrollments"]}
-          }
-        },
-        {
-          "name": "Create Enrollment 04",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"4\", \"studentId\": \"4\", \"courseId\": \"4\", \"enrollmentDate\": \"2025-02-01\", \"semester\": \"2025-1\", \"status\": \"Activo\", \"grade\": 4.8}"},
-            "url": {"raw": "{{baseUrl}}/api/enrollments", "host": ["{{baseUrl}}"], "path": ["api", "enrollments"]}
-          }
-        },
-        {
-          "name": "Create Enrollment 05",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"5\", \"studentId\": \"5\", \"courseId\": \"5\", \"enrollmentDate\": \"2025-02-05\", \"semester\": \"2025-1\", \"status\": \"Activo\", \"grade\": 4.2}"},
-            "url": {"raw": "{{baseUrl}}/api/enrollments", "host": ["{{baseUrl}}"], "path": ["api", "enrollments"]}
-          }
-        },
-        {
-          "name": "Create Enrollment 06",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"6\", \"studentId\": \"6\", \"courseId\": \"6\", \"enrollmentDate\": \"2025-02-10\", \"semester\": \"2025-1\", \"status\": \"Activo\", \"grade\": 4.6}"},
-            "url": {"raw": "{{baseUrl}}/api/enrollments", "host": ["{{baseUrl}}"], "path": ["api", "enrollments"]}
-          }
-        },
-        {
-          "name": "Create Enrollment 07",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"7\", \"studentId\": \"7\", \"courseId\": \"7\", \"enrollmentDate\": \"2025-02-15\", \"semester\": \"2025-1\", \"status\": \"Activo\", \"grade\": 4.4}"},
-            "url": {"raw": "{{baseUrl}}/api/enrollments", "host": ["{{baseUrl}}"], "path": ["api", "enrollments"]}
-          }
-        },
-        {
-          "name": "Create Enrollment 08",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"8\", \"studentId\": \"8\", \"courseId\": \"8\", \"enrollmentDate\": \"2025-02-20\", \"semester\": \"2025-1\", \"status\": \"Activo\", \"grade\": 4.9}"},
-            "url": {"raw": "{{baseUrl}}/api/enrollments", "host": ["{{baseUrl}}"], "path": ["api", "enrollments"]}
-          }
-        },
-        {
-          "name": "Create Enrollment 09",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"9\", \"studentId\": \"9\", \"courseId\": \"9\", \"enrollmentDate\": \"2025-02-25\", \"semester\": \"2025-1\", \"status\": \"Activo\", \"grade\": 4.1}"},
-            "url": {"raw": "{{baseUrl}}/api/enrollments", "host": ["{{baseUrl}}"], "path": ["api", "enrollments"]}
-          }
-        },
-        {
-          "name": "Create Enrollment 10",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"10\", \"studentId\": \"10\", \"courseId\": \"10\", \"enrollmentDate\": \"2025-03-01\", \"semester\": \"2025-1\", \"status\": \"Activo\", \"grade\": 4.7}"},
+            "body": {"mode": "raw", "raw": "{\"id\": \"ENR001\", \"enrollmentDate\": \"2025-01-15\", \"semester\": \"2025-1\", \"status\": \"Activo\", \"grade\": 4.5, \"student\": {\"id\": \"STU001\"}, \"course\": {\"id\": \"COURSE001\"}}"},
             "url": {"raw": "{{baseUrl}}/api/enrollments", "host": ["{{baseUrl}}"], "path": ["api", "enrollments"]}
           }
         },
@@ -901,12 +425,12 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"id\": \"1\",\n  \"studentId\": \"1\",\n  \"courseId\": \"1\",\n  \"enrollmentDate\": \"2025-01-15\",\n  \"semester\": \"2025-1\",\n  \"status\": \"Activo\",\n  \"grade\": 4.8\n}"
+              "raw": "{\n  \"id\": \"ENR001\",\n  \"enrollmentDate\": \"2025-01-15\",\n  \"semester\": \"2025-1\",\n  \"status\": \"Activo\",\n  \"grade\": 4.8,\n  \"student\": {\"id\": \"STU001\"},\n  \"course\": {\"id\": \"COURSE001\"}\n}"
             },
             "url": {
-              "raw": "{{baseUrl}}/api/enrollments/1",
+              "raw": "{{baseUrl}}/api/enrollments/ENR001",
               "host": ["{{baseUrl}}"],
-              "path": ["api", "enrollments", "1"]
+              "path": ["api", "enrollments", "ENR001"]
             }
           }
         },
@@ -916,9 +440,9 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/api/enrollments/1",
+              "raw": "{{baseUrl}}/api/enrollments/ENR001",
               "host": ["{{baseUrl}}"],
-              "path": ["api", "enrollments", "1"]
+              "path": ["api", "enrollments", "ENR001"]
             }
           }
         }
@@ -956,16 +480,7 @@
           "request": {
             "method": "POST",
             "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"ASSIGN001\", \"assignmentDate\": \"2024-01-10\", \"semester\": \"2024-1\"}"},
-            "url": {"raw": "{{baseUrl}}/api/professor-assignments", "host": ["{{baseUrl}}"], "path": ["api", "professor-assignments"]}
-          }
-        },
-        {
-          "name": "Create Professor Assignment 02",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"ASSIGN002\", \"assignmentDate\": \"2024-07-15\", \"semester\": \"2024-2\"}"},
+            "body": {"mode": "raw", "raw": "{\"id\": \"ASSIGN001\", \"assignmentDate\": \"2024-01-10\", \"semester\": \"2024-1\", \"professor\": {\"id\": \"PROF001\"}, \"course\": {\"id\": \"COURSE001\"}}"},
             "url": {"raw": "{{baseUrl}}/api/professor-assignments", "host": ["{{baseUrl}}"], "path": ["api", "professor-assignments"]}
           }
         },
@@ -1108,7 +623,7 @@
           "request": {
             "method": "POST",
             "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"ADMIN001\", \"firstName\": \"María\", \"lastName\": \"Rodríguez\", \"email\": \"maria@uni.edu\", \"phone\": \"3005551234\", \"address\": \"Calle 10\", \"position\": \"Registrar\", \"hireDate\": \"2021-06-01\", \"salary\": 3000000}"},
+            "body": {"mode": "raw", "raw": "{\"id\": \"ADMIN001\", \"firstName\": \"María\", \"lastName\": \"Rodríguez\", \"email\": \"maria@uni.edu\", \"phone\": \"3005551234\", \"address\": \"Calle 10\", \"position\": \"Registrar\", \"hireDate\": \"2021-06-01\", \"salary\": 3000000, \"department\": {\"id\": \"DEPT001\"}}"},
             "url": {"raw": "{{baseUrl}}/api/administrative-employees", "host": ["{{baseUrl}}"], "path": ["api", "administrative-employees"]}
           }
         },

@@ -1,3 +1,4 @@
+
 package co.edu.umanizales.univesity_control.model;
 
 import lombok.AllArgsConstructor;

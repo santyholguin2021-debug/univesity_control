@@ -4,6 +4,8 @@ import co.edu.umanizales.univesity_control.model.Enrollment;
 import co.edu.umanizales.univesity_control.repository.impl.EnrollmentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.http.HttpStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,15 +32,21 @@ public class EnrollmentService {
                 return enrollment;
             }
         }
-        throw new RuntimeException("Enrollment not found with id: " + id);
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Enrollment not found with id: " + id);
     }
 
     public Enrollment create(Enrollment enrollment) {
         // Verificar si el ID ya existe
         for (Enrollment current : enrollments) {
             if (current.getId() != null && current.getId().equals(enrollment.getId())) {
-                throw new RuntimeException("Enrollment with id: " + enrollment.getId() + " already exists");
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Enrollment with id: " + enrollment.getId() + " already exists");
             }
+        }
+        if (enrollment.getStudent() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "student is required for Enrollment");
+        }
+        if (enrollment.getCourse() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "course is required for Enrollment");
         }
         enrollments.add(enrollment);
         if (enrollment.getStudent() != null && !enrollment.getStudent().getEnrollments().contains(enrollment)) {
@@ -52,6 +60,12 @@ public class EnrollmentService {
     }
 
     public Enrollment update(Enrollment enrollment) {
+        if (enrollment.getStudent() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "student is required for Enrollment");
+        }
+        if (enrollment.getCourse() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "course is required for Enrollment");
+        }
         for (int i = 0; i < enrollments.size(); i++) {
             Enrollment current = enrollments.get(i);
             if (current.getId() != null && current.getId().equals(enrollment.getId())) {
@@ -74,7 +88,7 @@ public class EnrollmentService {
                 return enrollment;
             }
         }
-        throw new RuntimeException("Enrollment not found with id: " + enrollment.getId());
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Enrollment not found with id: " + enrollment.getId());
     }
 
     public Enrollment save(Enrollment enrollment) {

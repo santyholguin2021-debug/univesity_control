@@ -1,11 +1,2 @@
 id,firstName,lastName,email,phone,address,enrollmentDate,major,gpa
 STU001,Carlos,López,carlos@uni.edu,3009876543,Calle A,2023-01-20,CS,3.8
-STU002,Ana,Rodríguez,ana@uni.edu,3001112222,Calle B,2023-02-15,SE,3.9
-STU003,Pedro,García,pedro@uni.edu,3003334444,Calle C,2023-03-10,IT,3.7
-STU004,Laura,Martínez,laura@uni.edu,3005556666,Calle D,2023-04-05,DS,3.95
-STU005,Diego,Sánchez,diego@uni.edu,3007778888,Calle E,2023-05-01,WD,3.6
-STU006,Sofía,Gómez,sofia@uni.edu,3009990000,Calle F,2023-06-15,CS,3.85
-STU007,Roberto,Díaz,roberto@uni.edu,3001231234,Calle G,2023-07-10,IT,3.75
-STU008,Marta,Fernández,marta@uni.edu,3003453456,Calle H,2023-08-20,SE,3.88
-STU009,Javier,Torres,javier@uni.edu,3005675678,Calle I,2023-09-05,AI,3.92
-STU010,Isabela,Castillo,isabela@uni.edu,3007897898,Calle J,2023-10-01,CS,3.82
