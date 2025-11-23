@@ -45,6 +45,7 @@ public class AdministrativeEmployeeService {
         if (employee.getDepartment() == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "department is required for AdministrativeEmployee");
         }
+        employee.setDepartmentId(employee.getDepartment() != null ? employee.getDepartment().getId() : null);
         employees.add(employee);
         repository.saveAll(employees);
         return employee;
@@ -57,6 +58,7 @@ public class AdministrativeEmployeeService {
         for (int i = 0; i < employees.size(); i++) {
             AdministrativeEmployee current = employees.get(i);
             if (current.getId() != null && current.getId().equals(employee.getId())) {
+                employee.setDepartmentId(employee.getDepartment() != null ? employee.getDepartment().getId() : null);
                 employees.set(i, employee);
                 repository.saveAll(employees);
                 return employee;
@@ -69,11 +71,13 @@ public class AdministrativeEmployeeService {
         for (int i = 0; i < employees.size(); i++) {
             AdministrativeEmployee current = employees.get(i);
             if (current.getId() != null && current.getId().equals(employee.getId())) {
+                employee.setDepartmentId(employee.getDepartment() != null ? employee.getDepartment().getId() : null);
                 employees.set(i, employee);
                 repository.save(employee);
                 return employee;
             }
         }
+        employee.setDepartmentId(employee.getDepartment() != null ? employee.getDepartment().getId() : null);
         employees.add(employee);
         repository.save(employee);
         return employee;

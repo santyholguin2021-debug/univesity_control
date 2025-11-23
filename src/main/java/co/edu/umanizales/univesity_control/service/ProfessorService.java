@@ -45,6 +45,7 @@ public class ProfessorService {
         if (professor.getDepartment() == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "department is required for Professor");
         }
+        professor.setDepartmentId(professor.getDepartment() != null ? professor.getDepartment().getId() : null);
         professors.add(professor);
         repository.saveAll(professors);
         return professor;
@@ -57,6 +58,7 @@ public class ProfessorService {
         for (int i = 0; i < professors.size(); i++) {
             Professor current = professors.get(i);
             if (current.getId() != null && current.getId().equals(professor.getId())) {
+                professor.setDepartmentId(professor.getDepartment() != null ? professor.getDepartment().getId() : null);
                 professors.set(i, professor);
                 repository.saveAll(professors);
                 return professor;
@@ -69,11 +71,13 @@ public class ProfessorService {
         for (int i = 0; i < professors.size(); i++) {
             Professor current = professors.get(i);
             if (current.getId() != null && current.getId().equals(professor.getId())) {
+                professor.setDepartmentId(professor.getDepartment() != null ? professor.getDepartment().getId() : null);
                 professors.set(i, professor);
                 repository.save(professor);
                 return professor;
             }
         }
+        professor.setDepartmentId(professor.getDepartment() != null ? professor.getDepartment().getId() : null);
         professors.add(professor);
         repository.save(professor);
         return professor;

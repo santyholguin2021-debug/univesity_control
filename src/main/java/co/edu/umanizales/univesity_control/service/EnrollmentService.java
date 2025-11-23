@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.time.LocalDate;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -48,6 +50,13 @@ public class EnrollmentService {
         if (enrollment.getCourse() == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "course is required for Enrollment");
         }
+        // Sync duplicated/derived fields from related objects
+        enrollment.setStudentId(enrollment.getStudent() != null ? enrollment.getStudent().getId() : null);
+        enrollment.setCourseId(enrollment.getCourse() != null ? enrollment.getCourse().getId() : null);
+        // Ensure enrollmentDate matches the Student's enrollmentDate
+        if (enrollment.getStudent() != null) {
+            enrollment.setEnrollmentDate(enrollment.getStudent().getEnrollmentDate());
+        }
         enrollments.add(enrollment);
         if (enrollment.getStudent() != null && !enrollment.getStudent().getEnrollments().contains(enrollment)) {
             enrollment.getStudent().getEnrollments().add(enrollment);
@@ -65,6 +74,12 @@ public class EnrollmentService {
         }
         if (enrollment.getCourse() == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "course is required for Enrollment");
+        }
+        // Sync duplicated/derived fields from related objects
+        enrollment.setStudentId(enrollment.getStudent() != null ? enrollment.getStudent().getId() : null);
+        enrollment.setCourseId(enrollment.getCourse() != null ? enrollment.getCourse().getId() : null);
+        if (enrollment.getStudent() != null) {
+            enrollment.setEnrollmentDate(enrollment.getStudent().getEnrollmentDate());
         }
         for (int i = 0; i < enrollments.size(); i++) {
             Enrollment current = enrollments.get(i);
@@ -92,6 +107,12 @@ public class EnrollmentService {
     }
 
     public Enrollment save(Enrollment enrollment) {
+        // Sync duplicated/derived fields from related objects
+        enrollment.setStudentId(enrollment.getStudent() != null ? enrollment.getStudent().getId() : null);
+        enrollment.setCourseId(enrollment.getCourse() != null ? enrollment.getCourse().getId() : null);
+        if (enrollment.getStudent() != null) {
+            enrollment.setEnrollmentDate(enrollment.getStudent().getEnrollmentDate());
+        }
         // replace existing by id if present
         for (int i = 0; i < enrollments.size(); i++) {
             Enrollment current = enrollments.get(i);
@@ -141,5 +162,30 @@ public class EnrollmentService {
                 return;
             }
         }
+    }
+    
+    public List<Enrollment> findEnrollmentsByDateRange(LocalDate startDate, LocalDate endDate) {
+        if (startDate == null || endDate == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Both startDate and endDate are required");
+        }
+        if (startDate.isAfter(endDate)) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "startDate must be before or equal to endDate");
+        }
+        
+        return enrollments.stream()
+            .filter(enrollment -> {
+                String dateStr = enrollment.getEnrollmentDate();
+                if (dateStr == null || dateStr.isEmpty()) {
+                    return false;
+                }
+                try {
+                    LocalDate enrollmentDate = LocalDate.parse(dateStr);
+                    return !enrollmentDate.isBefore(startDate) &&
+                           !enrollmentDate.isAfter(endDate);
+                } catch (Exception e) {
+                    return false;
+                }
+            })
+            .collect(Collectors.toList());
     }
 }

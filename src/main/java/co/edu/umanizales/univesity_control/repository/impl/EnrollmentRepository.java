@@ -17,7 +17,7 @@ public class EnrollmentRepository implements CsvRepository<Enrollment> {
     private String storagePath;
 
     private static final String FILE_NAME = "enrollments.csv";
-    private static final String HEADER = "id,enrollmentDate,semester,status,grade";
+    private static final String HEADER = "id,studentId,courseId,enrollmentDate,semester,status,grade";
 
     private String getFilePath() {
         return storagePath + File.separator + FILE_NAME;
@@ -104,15 +104,20 @@ public class EnrollmentRepository implements CsvRepository<Enrollment> {
 
     private Enrollment parseEnrollment(String line) {
         String[] parts = line.split(",", -1);
-        return new Enrollment(
-                parts[0], null, null, parts[1], parts[2], parts[3],
-                parts[4].isEmpty() ? 0.0 : Double.parseDouble(parts[4])
+        Enrollment enrollment = new Enrollment(
+                parts[0], null, null, parts[3], parts[4], parts[5],
+                parts[6].isEmpty() ? 0.0 : Double.parseDouble(parts[6])
         );
+        enrollment.setStudentId(parts[1].isEmpty() ? null : parts[1]);
+        enrollment.setCourseId(parts[2].isEmpty() ? null : parts[2]);
+        return enrollment;
     }
 
     private String toCSV(Enrollment enrollment) {
         return String.join(",",
                 enrollment.getId(),
+                enrollment.getStudentId() == null ? "" : enrollment.getStudentId(),
+                enrollment.getCourseId() == null ? "" : enrollment.getCourseId(),
                 enrollment.getEnrollmentDate(),
                 enrollment.getSemester(),
                 enrollment.getStatus(),

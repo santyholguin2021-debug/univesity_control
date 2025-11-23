@@ -17,7 +17,7 @@ public class CourseRepository implements CsvRepository<Course> {
     private String storagePath;
 
     private static final String FILE_NAME = "courses.csv";
-    private static final String HEADER = "id,name,code,credits,description";
+    private static final String HEADER = "id,name,code,credits,description,departmentId";
 
     private String getFilePath() {
         return storagePath + File.separator + FILE_NAME;
@@ -104,11 +104,13 @@ public class CourseRepository implements CsvRepository<Course> {
 
     private Course parseCourse(String line) {
         String[] parts = line.split(",", -1);
-        return new Course(
+        Course course = new Course(
                 parts[0], parts[1], parts[2],
                 parts[3].isEmpty() ? 0 : Integer.parseInt(parts[3]),
                 parts[4], null
         );
+        course.setDepartmentId(parts.length > 5 && !parts[5].isEmpty() ? parts[5] : null);
+        return course;
     }
 
     private String toCSV(Course course) {
@@ -117,7 +119,8 @@ public class CourseRepository implements CsvRepository<Course> {
                 course.getName(),
                 course.getCode(),
                 String.valueOf(course.getCredits()),
-                course.getDescription()
+                course.getDescription(),
+                course.getDepartmentId() == null ? "" : course.getDepartmentId()
         );
     }
 }

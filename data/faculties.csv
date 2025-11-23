@@ -1,2 +1,2 @@
-id,name,code,description
-FAC001,Faculty of Engineering,ENG,Engineering
+id,name,code,description,deanId
+FAC001,Faculty of Engineering,ENG,Engineering,PROF001

@@ -3,6 +3,7 @@ package co.edu.umanizales.univesity_control.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -17,6 +18,10 @@ public class Faculty {
     private String code;
     private String description;
 
+    // ID para persistencia CSV
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    private String deanId;
+
     // Referencias a objetos para relaciones (no se serializan en CSV)
     @JsonManagedReference("faculty-departments")
     @JsonIgnore
@@ -29,6 +34,7 @@ public class Faculty {
         this.name = name;
         this.code = code;
         this.dean = dean;
+        this.deanId = dean != null ? dean.getId() : null;
         this.description = description;
     }
 }

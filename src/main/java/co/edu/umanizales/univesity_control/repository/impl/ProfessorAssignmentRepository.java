@@ -17,7 +17,7 @@ public class ProfessorAssignmentRepository implements CsvRepository<ProfessorAss
     private String storagePath;
 
     private static final String FILE_NAME = "professor_assignments.csv";
-    private static final String HEADER = "id,semester,assignmentDate,schedule";
+    private static final String HEADER = "id,professorId,courseId,semester,assignmentDate,schedule";
 
     private String getFilePath() {
         return storagePath + File.separator + FILE_NAME;
@@ -104,12 +104,17 @@ public class ProfessorAssignmentRepository implements CsvRepository<ProfessorAss
 
     private ProfessorAssignment parseAssignment(String line) {
         String[] parts = line.split(",", -1);
-        return new ProfessorAssignment(parts[0], null, null, parts[1], parts[2], parts[3]);
+        ProfessorAssignment pa = new ProfessorAssignment(parts[0], null, null, parts[3], parts[4], parts[5]);
+        pa.setProfessorId(parts[1].isEmpty() ? null : parts[1]);
+        pa.setCourseId(parts[2].isEmpty() ? null : parts[2]);
+        return pa;
     }
 
     private String toCSV(ProfessorAssignment assignment) {
         return String.join(",",
                 assignment.getId(),
+                assignment.getProfessorId() == null ? "" : assignment.getProfessorId(),
+                assignment.getCourseId() == null ? "" : assignment.getCourseId(),
                 assignment.getSemester(),
                 assignment.getAssignmentDate(),
                 assignment.getSchedule()

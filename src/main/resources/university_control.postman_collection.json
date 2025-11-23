@@ -50,15 +50,6 @@
           }
         },
         {
-          "name": "Create Faculty 02",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"FAC002\", \"name\": \"Faculty of Sciences\", \"code\": \"SCI\", \"description\": \"Sciences\"}"},
-            "url": {"raw": "{{baseUrl}}/api/faculties", "host": ["{{baseUrl}}"], "path": ["api", "faculties"]}
-          }
-        },
-        {
           "name": "Update Faculty",
           "request": {
             "method": "PUT",
@@ -485,78 +476,6 @@
           }
         },
         {
-          "name": "Create Professor Assignment 03",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"ASSIGN003\", \"assignmentDate\": \"2025-01-08\", \"semester\": \"2025-1\"}"},
-            "url": {"raw": "{{baseUrl}}/api/professor-assignments", "host": ["{{baseUrl}}"], "path": ["api", "professor-assignments"]}
-          }
-        },
-        {
-          "name": "Create Professor Assignment 04",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"ASSIGN004\", \"assignmentDate\": \"2025-07-10\", \"semester\": \"2025-2\"}"},
-            "url": {"raw": "{{baseUrl}}/api/professor-assignments", "host": ["{{baseUrl}}"], "path": ["api", "professor-assignments"]}
-          }
-        },
-        {
-          "name": "Create Professor Assignment 05",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"ASSIGN005\", \"assignmentDate\": \"2023-01-15\", \"semester\": \"2023-1\"}"},
-            "url": {"raw": "{{baseUrl}}/api/professor-assignments", "host": ["{{baseUrl}}"], "path": ["api", "professor-assignments"]}
-          }
-        },
-        {
-          "name": "Create Professor Assignment 06",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"ASSIGN006\", \"assignmentDate\": \"2023-07-20\", \"semester\": \"2023-2\"}"},
-            "url": {"raw": "{{baseUrl}}/api/professor-assignments", "host": ["{{baseUrl}}"], "path": ["api", "professor-assignments"]}
-          }
-        },
-        {
-          "name": "Create Professor Assignment 07",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"ASSIGN007\", \"assignmentDate\": \"2022-01-12\", \"semester\": \"2022-1\"}"},
-            "url": {"raw": "{{baseUrl}}/api/professor-assignments", "host": ["{{baseUrl}}"], "path": ["api", "professor-assignments"]}
-          }
-        },
-        {
-          "name": "Create Professor Assignment 08",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"ASSIGN008\", \"assignmentDate\": \"2022-07-18\", \"semester\": \"2022-2\"}"},
-            "url": {"raw": "{{baseUrl}}/api/professor-assignments", "host": ["{{baseUrl}}"], "path": ["api", "professor-assignments"]}
-          }
-        },
-        {
-          "name": "Create Professor Assignment 09",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"ASSIGN009\", \"assignmentDate\": \"2021-01-20\", \"semester\": \"2021-1\"}"},
-            "url": {"raw": "{{baseUrl}}/api/professor-assignments", "host": ["{{baseUrl}}"], "path": ["api", "professor-assignments"]}
-          }
-        },
-        {
-          "name": "Create Professor Assignment 10",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"ASSIGN010\", \"assignmentDate\": \"2021-07-25\", \"semester\": \"2021-2\"}"},
-            "url": {"raw": "{{baseUrl}}/api/professor-assignments", "host": ["{{baseUrl}}"], "path": ["api", "professor-assignments"]}
-          }
-        },
-        {
           "name": "Update Professor Assignment",
           "request": {
             "method": "PUT",
@@ -628,87 +547,6 @@
           }
         },
         {
-          "name": "Create Administrative Employee 02",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"ADMIN002\", \"firstName\": \"Jorge\", \"lastName\": \"Sánchez\", \"email\": \"jorge@uni.edu\", \"phone\": \"3007778888\", \"address\": \"Calle 25\", \"position\": \"HR Manager\", \"hireDate\": \"2020-03-15\", \"salary\": 3500000}"},
-            "url": {"raw": "{{baseUrl}}/api/administrative-employees", "host": ["{{baseUrl}}"], "path": ["api", "administrative-employees"]}
-          }
-        },
-        {
-          "name": "Create Administrative Employee 03",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"ADMIN003\", \"firstName\": \"Patricia\", \"lastName\": \"Gómez\", \"email\": \"patricia@uni.edu\", \"phone\": \"3009999999\", \"address\": \"Calle 30\", \"position\": \"Finance Officer\", \"hireDate\": \"2019-09-01\", \"salary\": 3800000}"},
-            "url": {"raw": "{{baseUrl}}/api/administrative-employees", "host": ["{{baseUrl}}"], "path": ["api", "administrative-employees"]}
-          }
-        },
-        {
-          "name": "Create Administrative Employee 04",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"ADMIN004\", \"firstName\": \"David\", \"lastName\": \"López\", \"email\": \"david@uni.edu\", \"phone\": \"3001112222\", \"address\": \"Calle 35\", \"position\": \"IT Director\", \"hireDate\": \"2018-05-10\", \"salary\": 4200000}"},
-            "url": {"raw": "{{baseUrl}}/api/administrative-employees", "host": ["{{baseUrl}}"], "path": ["api", "administrative-employees"]}
-          }
-        },
-        {
-          "name": "Create Administrative Employee 05",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"ADMIN005\", \"firstName\": \"Carmen\", \"lastName\": \"García\", \"email\": \"carmen@uni.edu\", \"phone\": \"3003334444\", \"address\": \"Calle 40\", \"position\": \"Facilities Manager\", \"hireDate\": \"2020-11-20\", \"salary\": 3200000}"},
-            "url": {"raw": "{{baseUrl}}/api/administrative-employees", "host": ["{{baseUrl}}"], "path": ["api", "administrative-employees"]}
-          }
-        },
-        {
-          "name": "Create Administrative Employee 06",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"ADMIN006\", \"firstName\": \"Fernando\", \"lastName\": \"Martínez\", \"email\": \"fernando@uni.edu\", \"phone\": \"3005556666\", \"address\": \"Calle 45\", \"position\": \"Dean\", \"hireDate\": \"2017-01-15\", \"salary\": 4500000}"},
-            "url": {"raw": "{{baseUrl}}/api/administrative-employees", "host": ["{{baseUrl}}"], "path": ["api", "administrative-employees"]}
-          }
-        },
-        {
-          "name": "Create Administrative Employee 07",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"ADMIN007\", \"firstName\": \"Beatriz\", \"lastName\": \"Fernández\", \"email\": \"beatriz@uni.edu\", \"phone\": \"3007778888\", \"address\": \"Calle 50\", \"position\": \"Vice Dean\", \"hireDate\": \"2019-02-28\", \"salary\": 4000000}"},
-            "url": {"raw": "{{baseUrl}}/api/administrative-employees", "host": ["{{baseUrl}}"], "path": ["api", "administrative-employees"]}
-          }
-        },
-        {
-          "name": "Create Administrative Employee 08",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"ADMIN008\", \"firstName\": \"Raúl\", \"lastName\": \"Díaz\", \"email\": \"raul@uni.edu\", \"phone\": \"3009990000\", \"address\": \"Calle 55\", \"position\": \"Secretary\", \"hireDate\": \"2021-08-10\", \"salary\": 2800000}"},
-            "url": {"raw": "{{baseUrl}}/api/administrative-employees", "host": ["{{baseUrl}}"], "path": ["api", "administrative-employees"]}
-          }
-        },
-        {
-          "name": "Create Administrative Employee 09",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"ADMIN009\", \"firstName\": \"Gabriela\", \"lastName\": \"Torres\", \"email\": \"gabriela@uni.edu\", \"phone\": \"3001231234\", \"address\": \"Calle 60\", \"position\": \"Accountant\", \"hireDate\": \"2020-04-05\", \"salary\": 3100000}"},
-            "url": {"raw": "{{baseUrl}}/api/administrative-employees", "host": ["{{baseUrl}}"], "path": ["api", "administrative-employees"]}
-          }
-        },
-        {
-          "name": "Create Administrative Employee 10",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"ADMIN010\", \"firstName\": \"Héctor\", \"lastName\": \"Castillo\", \"email\": \"hector@uni.edu\", \"phone\": \"3003453456\", \"address\": \"Calle 65\", \"position\": \"Administrative Assistant\", \"hireDate\": \"2022-01-17\", \"salary\": 2600000}"},
-            "url": {"raw": "{{baseUrl}}/api/administrative-employees", "host": ["{{baseUrl}}"], "path": ["api", "administrative-employees"]}
-          }
-        },
-        {
           "name": "Update Administrative Employee",
           "request": {
             "method": "PUT",
@@ -776,87 +614,6 @@
             "method": "POST",
             "header": [{"key": "Content-Type", "value": "application/json"}],
             "body": {"mode": "raw", "raw": "{\"id\": \"CLASS001\", \"name\": \"Room 101\", \"capacity\": 40}"},
-            "url": {"raw": "{{baseUrl}}/api/classrooms", "host": ["{{baseUrl}}"], "path": ["api", "classrooms"]}
-          }
-        },
-        {
-          "name": "Create Classroom 02",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"CLASS002\", \"name\": \"Room 102\", \"capacity\": 35}"},
-            "url": {"raw": "{{baseUrl}}/api/classrooms", "host": ["{{baseUrl}}"], "path": ["api", "classrooms"]}
-          }
-        },
-        {
-          "name": "Create Classroom 03",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"CLASS003\", \"name\": \"Lab 201\", \"capacity\": 30}"},
-            "url": {"raw": "{{baseUrl}}/api/classrooms", "host": ["{{baseUrl}}"], "path": ["api", "classrooms"]}
-          }
-        },
-        {
-          "name": "Create Classroom 04",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"CLASS004\", \"name\": \"Auditorium\", \"capacity\": 200}"},
-            "url": {"raw": "{{baseUrl}}/api/classrooms", "host": ["{{baseUrl}}"], "path": ["api", "classrooms"]}
-          }
-        },
-        {
-          "name": "Create Classroom 05",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"CLASS005\", \"name\": \"Room 103\", \"capacity\": 45}"},
-            "url": {"raw": "{{baseUrl}}/api/classrooms", "host": ["{{baseUrl}}"], "path": ["api", "classrooms"]}
-          }
-        },
-        {
-          "name": "Create Classroom 06",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"CLASS006\", \"name\": \"Lab 202\", \"capacity\": 25}"},
-            "url": {"raw": "{{baseUrl}}/api/classrooms", "host": ["{{baseUrl}}"], "path": ["api", "classrooms"]}
-          }
-        },
-        {
-          "name": "Create Classroom 07",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"CLASS007\", \"name\": \"Room 201\", \"capacity\": 50}"},
-            "url": {"raw": "{{baseUrl}}/api/classrooms", "host": ["{{baseUrl}}"], "path": ["api", "classrooms"]}
-          }
-        },
-        {
-          "name": "Create Classroom 08",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"CLASS008\", \"name\": \"Seminar Room A\", \"capacity\": 20}"},
-            "url": {"raw": "{{baseUrl}}/api/classrooms", "host": ["{{baseUrl}}"], "path": ["api", "classrooms"]}
-          }
-        },
-        {
-          "name": "Create Classroom 09",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"CLASS009\", \"name\": \"Seminar Room B\", \"capacity\": 20}"},
-            "url": {"raw": "{{baseUrl}}/api/classrooms", "host": ["{{baseUrl}}"], "path": ["api", "classrooms"]}
-          }
-        },
-        {
-          "name": "Create Classroom 10",
-          "request": {
-            "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
-            "body": {"mode": "raw", "raw": "{\"id\": \"CLASS010\", \"name\": \"Conference Hall\", \"capacity\": 150}"},
             "url": {"raw": "{{baseUrl}}/api/classrooms", "host": ["{{baseUrl}}"], "path": ["api", "classrooms"]}
           }
         },

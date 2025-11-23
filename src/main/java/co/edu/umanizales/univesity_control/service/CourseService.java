@@ -45,6 +45,8 @@ public class CourseService {
         if (course.getDepartment() == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "department is required for Course");
         }
+        // sync ID from related object
+        course.setDepartmentId(course.getDepartment() != null ? course.getDepartment().getId() : null);
         courses.add(course);
         repository.saveAll(courses);
         return course;
@@ -57,6 +59,7 @@ public class CourseService {
         for (int i = 0; i < courses.size(); i++) {
             Course current = courses.get(i);
             if (current.getId() != null && current.getId().equals(course.getId())) {
+                course.setDepartmentId(course.getDepartment() != null ? course.getDepartment().getId() : null);
                 courses.set(i, course);
                 repository.saveAll(courses);
                 return course;
@@ -69,11 +72,13 @@ public class CourseService {
         for (int i = 0; i < courses.size(); i++) {
             Course current = courses.get(i);
             if (current.getId() != null && current.getId().equals(course.getId())) {
+                course.setDepartmentId(course.getDepartment() != null ? course.getDepartment().getId() : null);
                 courses.set(i, course);
                 repository.save(course);
                 return course;
             }
         }
+        course.setDepartmentId(course.getDepartment() != null ? course.getDepartment().getId() : null);
         courses.add(course);
         repository.save(course);
         return course;

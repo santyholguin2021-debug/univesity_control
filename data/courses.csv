@@ -1,2 +1,4 @@
-id,name,code,credits,description
-COURSE001,Java,CS101,3,Java
+id,name,code,credits,description,departmentId
+COURSE001,Programación en Java,CS101,4,Programación orientada a objetos con Java,DEPT001
+COURSE002,Estructuras de Datos,CS102,4,Estructuras de datos y algoritmos fundamentales,DEPT001
+COURSE003,Bases de Datos,CS201,4,Diseño y administración de bases de datos,DEPT001

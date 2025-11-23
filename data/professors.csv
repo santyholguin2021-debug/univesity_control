@@ -1,2 +1,2 @@
-id,firstName,lastName,email,phone,address,specialization,hireDate,salary
-PROF001,Juan,García,juan@uni.edu,3001234567,Calle 1,Software,2020-01-15,5000000.0
+id,firstName,lastName,email,phone,address,specialization,hireDate,salary,departmentId
+PROF001,Juan,García,juan@uni.edu,3001234567,Calle 1,Software,2020-01-15,5000000.0,DEPT001

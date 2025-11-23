@@ -4,6 +4,7 @@ package co.edu.umanizales.univesity_control.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -16,6 +17,8 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 public class Professor extends Person {
     // ID para persistencia CSV
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    private String departmentId;
 
     // Referencia a objeto para relaciones (no se serializa en CSV)
     @JsonBackReference("department-professors")
@@ -33,6 +36,7 @@ public class Professor extends Person {
                      String address, Department department, String specialization, String hireDate, double salary) {
         super(id, firstName, lastName, email, phone, address);
         this.department = department;
+        this.departmentId = department != null ? department.getId() : null;
         this.specialization = specialization;
         this.hireDate = hireDate;
         this.salary = salary;

@@ -17,7 +17,7 @@ public class AdministrativeEmployeeRepository implements CsvRepository<Administr
     private String storagePath;
 
     private static final String FILE_NAME = "administrative_employees.csv";
-    private static final String HEADER = "id,firstName,lastName,email,phone,address,position,hireDate,salary";
+    private static final String HEADER = "id,firstName,lastName,email,phone,address,position,hireDate,salary,departmentId";
 
     private String getFilePath() {
         return storagePath + File.separator + FILE_NAME;
@@ -104,10 +104,14 @@ public class AdministrativeEmployeeRepository implements CsvRepository<Administr
 
     private AdministrativeEmployee parseEmployee(String line) {
         String[] parts = line.split(",", -1);
-        return new AdministrativeEmployee(
+        AdministrativeEmployee emp = new AdministrativeEmployee(
                 parts[0], parts[1], parts[2], parts[3], parts[4], parts[5],
                 parts[6], null, parts[7], parts[8].isEmpty() ? 0.0 : Double.parseDouble(parts[8])
         );
+        if (parts.length > 9 && !parts[9].isEmpty()) {
+            emp.setDepartmentId(parts[9]);
+        }
+        return emp;
     }
 
     private String toCSV(AdministrativeEmployee employee) {
@@ -120,7 +124,8 @@ public class AdministrativeEmployeeRepository implements CsvRepository<Administr
                 employee.getAddress(),
                 employee.getPosition(),
                 employee.getHireDate(),
-                String.valueOf(employee.getSalary())
+                String.valueOf(employee.getSalary()),
+                employee.getDepartmentId() == null ? "" : employee.getDepartmentId()
         );
     }
 }

@@ -1,2 +1,12 @@
 id,firstName,lastName,email,phone,address,enrollmentDate,major,gpa
+STU001,Ana,Martínez,ana.martinez@example.com,3001234567,Calle 1 #2-3,2025-01-15,Ingeniería de Sistemas,4.2
+STU002,Carlos,Gómez,carlos.gomez@example.com,3002345678,Carrera 4 #5-6,2025-01-16,Ingeniería de Sistemas,4.0
+STU003,María,Rodríguez,maria.rodriguez@example.com,3003456789,Calle 7 #8-9,2025-01-17,Ingeniería de Sistemas,4.5
+STU004,Juan,López,juan.lopez@example.com,3004567890,Carrera 10 #11-12,2025-01-18,Ingeniería de Sistemas,3.8
+STU005,Laura,Sánchez,laura.sanchez@example.com,3005678901,Calle 13 #14-15,2025-01-19,Ingeniería de Sistemas,4.3
+STU006,Pedro,Ramírez,pedro.ramirez@example.com,3006789012,Carrera 16 #17-18,2025-01-20,Ingeniería de Sistemas,4.1
+STU007,Andrea,Díaz,andrea.diaz@example.com,3007890123,Calle 19 #20-21,2025-01-21,Ingeniería de Sistemas,3.9
+STU008,Sebastián,Moreno,sebastian.moreno@example.com,3008901234,Carrera 22 #23-24,2025-01-22,Ingeniería de Sistemas,4.4
+STU009,Daniela,Torres,daniela.torres@example.com,3009012345,Calle 25 #26-27,2025-01-23,Ingeniería de Sistemas,4.0
+STU010,Andrés,Herrera,andres.herrera@example.com,3010123456,Carrera 28 #29-30,2025-01-24,Ingeniería de Sistemas,4.2
 STU001,Carlos,López,carlos@uni.edu,3009876543,Calle A,2023-01-20,CS,3.8

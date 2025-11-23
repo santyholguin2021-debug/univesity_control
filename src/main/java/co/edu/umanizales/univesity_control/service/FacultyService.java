@@ -45,6 +45,7 @@ public class FacultyService {
         if (faculty.getDean() == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "dean is required for Faculty");
         }
+        faculty.setDeanId(faculty.getDean() != null ? faculty.getDean().getId() : null);
         faculties.add(faculty);
         repository.saveAll(faculties);
         return faculty;
@@ -57,6 +58,7 @@ public class FacultyService {
         for (int i = 0; i < faculties.size(); i++) {
             Faculty current = faculties.get(i);
             if (current.getId() != null && current.getId().equals(faculty.getId())) {
+                faculty.setDeanId(faculty.getDean() != null ? faculty.getDean().getId() : null);
                 faculties.set(i, faculty);
                 repository.saveAll(faculties);
                 return faculty;
@@ -69,11 +71,13 @@ public class FacultyService {
         for (int i = 0; i < faculties.size(); i++) {
             Faculty current = faculties.get(i);
             if (current.getId() != null && current.getId().equals(faculty.getId())) {
+                faculty.setDeanId(faculty.getDean() != null ? faculty.getDean().getId() : null);
                 faculties.set(i, faculty);
                 repository.save(faculty);
                 return faculty;
             }
         }
+        faculty.setDeanId(faculty.getDean() != null ? faculty.getDean().getId() : null);
         faculties.add(faculty);
         repository.save(faculty);
         return faculty;

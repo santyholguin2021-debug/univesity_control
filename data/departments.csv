@@ -1,2 +1,2 @@
-id,name,code
-DEPT001,Computer Science,CS
+id,name,code,facultyId,headProfessorId
+DEPT001,Computer Science,CS,FAC001,PROF001

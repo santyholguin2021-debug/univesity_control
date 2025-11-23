@@ -48,6 +48,10 @@ public class ProfessorAssignmentService {
         if (assignment.getCourse() == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "course is required for ProfessorAssignment");
         }
+        // Sync IDs from related objects before persisting
+        assignment.setProfessorId(assignment.getProfessor() != null ? assignment.getProfessor().getId() : null);
+        assignment.setCourseId(assignment.getCourse() != null ? assignment.getCourse().getId() : null);
+
         assignments.add(assignment);
         if (assignment.getProfessor() != null && !assignment.getProfessor().getAssignments().contains(assignment)) {
             assignment.getProfessor().getAssignments().add(assignment);
@@ -66,6 +70,10 @@ public class ProfessorAssignmentService {
         if (assignment.getCourse() == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "course is required for ProfessorAssignment");
         }
+        // Sync IDs from related objects before persisting
+        assignment.setProfessorId(assignment.getProfessor().getId());
+        assignment.setCourseId(assignment.getCourse().getId());
+
         for (int i = 0; i < assignments.size(); i++) {
             ProfessorAssignment current = assignments.get(i);
             if (current.getId() != null && current.getId().equals(assignment.getId())) {
@@ -92,6 +100,10 @@ public class ProfessorAssignmentService {
     }
 
     public ProfessorAssignment save(ProfessorAssignment assignment) {
+        // Sync IDs from related objects before persisting
+        assignment.setProfessorId(assignment.getProfessor() != null ? assignment.getProfessor().getId() : null);
+        assignment.setCourseId(assignment.getCourse() != null ? assignment.getCourse().getId() : null);
+
         for (int i = 0; i < assignments.size(); i++) {
             ProfessorAssignment current = assignments.get(i);
             if (current.getId() != null && current.getId().equals(assignment.getId())) {

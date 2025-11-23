@@ -48,6 +48,8 @@ public class DepartmentService {
         if (department.getHeadProfessor() == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "headProfessor is required for Department");
         }
+        department.setFacultyId(department.getFaculty() != null ? department.getFaculty().getId() : null);
+        department.setHeadProfessorId(department.getHeadProfessor() != null ? department.getHeadProfessor().getId() : null);
         departments.add(department);
         repository.saveAll(departments);
         return department;
@@ -63,6 +65,8 @@ public class DepartmentService {
         for (int i = 0; i < departments.size(); i++) {
             Department current = departments.get(i);
             if (current.getId() != null && current.getId().equals(department.getId())) {
+                department.setFacultyId(department.getFaculty() != null ? department.getFaculty().getId() : null);
+                department.setHeadProfessorId(department.getHeadProfessor() != null ? department.getHeadProfessor().getId() : null);
                 departments.set(i, department);
                 repository.saveAll(departments);
                 return department;
@@ -75,11 +79,15 @@ public class DepartmentService {
         for (int i = 0; i < departments.size(); i++) {
             Department current = departments.get(i);
             if (current.getId() != null && current.getId().equals(department.getId())) {
+                department.setFacultyId(department.getFaculty() != null ? department.getFaculty().getId() : null);
+                department.setHeadProfessorId(department.getHeadProfessor() != null ? department.getHeadProfessor().getId() : null);
                 departments.set(i, department);
                 repository.save(department);
                 return department;
             }
         }
+        department.setFacultyId(department.getFaculty() != null ? department.getFaculty().getId() : null);
+        department.setHeadProfessorId(department.getHeadProfessor() != null ? department.getHeadProfessor().getId() : null);
         departments.add(department);
         repository.save(department);
         return department;
